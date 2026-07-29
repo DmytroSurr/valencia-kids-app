@@ -2,359 +2,87 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Valencià ↔ Українська – Тренувальний курс (20 тем)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Valencià ↔ Українська • Тренажер для дітей</title>
+  
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
     }
-    .app {
-      background: #111827;
-      border-radius: 16px;
-      padding: 24px;
-      max-width: 900px;
-      width: 100%;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-    }
-    h1 {
-      margin-top: 0;
-      font-size: 1.4rem;
-      text-align: center;
-    }
-    .top-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .mode-switch {
-      display: flex;
-      gap: 8px;
-    }
-    .mode-switch button {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #1f2937;
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .mode-switch button.active {
-      background: #22c55e;
-      border-color: #16a34a;
-    }
-    .top-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-      font-size: 0.85rem;
-      color: #9ca3af;
-    }
-    .xp {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-    .streak-pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #020617;
-      color: #9ca3af;
-      font-size: 0.8rem;
-    }
-    .layout {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 16px;
-    }
-    .course-panel {
-      background: #030712;
-      border-radius: 12px;
-      padding: 12px;
-      border: 1px solid #1f2937;
-      max-height: 460px;
-      overflow-y: auto;
-    }
-    .course-title {
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-      color: #e5e7eb;
-    }
-    .topic-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 6px 8px;
-      margin-bottom: 4px;
-      border-radius: 8px;
-      border: 1px solid #374151;
-      background: #020617;
-      cursor: pointer;
-      font-size: 0.85rem;
-    }
-    .topic-item.active {
-      background: #2563eb;
-      border-color: #1d4ed8;
-    }
-    .topic-title {
-      flex: 1;
-      margin-right: 4px;
-    }
-    .topic-status {
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-    .card {
-      background: #030712;
-      border-radius: 12px;
-      padding: 16px;
-      border: 1px solid #1f2937;
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    .card-main {
-      display: flex;
-      flex-direction: column;
-    }
-    .question-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-    .question-text {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .phonetic {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      margin-bottom: 12px;
-    }
-    .options {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .option {
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid #374151;
-      background: #0b1120;
-      color: #e5e7eb;
-      cursor: pointer;
-      text-align: left;
-      font-size: 0.95rem;
-    }
-    .option.correct {
-      background: #16a34a;
-      border-color: #15803d;
-    }
-    .option.wrong {
-      background: #f97316;
-      border-color: #ea580c;
-    }
-    .controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .controls button {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #1f2937;
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .pill {
-      font-size: 0.8rem;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #020617;
-      color: #9ca3af;
-    }
-    .image-box {
-      border-radius: 12px;
-      border: 1px dashed #374151;
-      background: #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
-      min-height: 120px;
-      font-size: 0.8rem;
-      color: #6b7280;
-      text-align: center;
-    }
-    .image-box img {
-      max-width: 100%;
-      max-height: 120px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-    .feedback {
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-    .feedback.good {
-      color: #22c55e;
-    }
-    .feedback.bad {
-      color: #f97316;
-    }
-    .progress {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      color: #9ca3af;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .small {
-      font-size: 0.8rem;
-      color: #6b7280;
-      margin-top: 8px;
-      text-align: center;
-    }
-    .lesson-end {
-      text-align: center;
-      padding: 16px;
-    }
-    .lesson-end h2 {
-      margin: 0 0 8px;
-      font-size: 1.3rem;
-    }
-    .badge {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #22c55e;
-      color: #022c22;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .actions-row {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .actions-row button {
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #1f2937;
-      color: #e5e7eb;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-  </style>
+  </script>
 </head>
 <body>
-<div class="app">
-  <h1>Valencià ↔ Українська • Курс для дітей (20 тем)</h1>
-
-  <div class="top-row">
-    <div class="mode-switch">
-      <button id="mode-va-uk" class="active">Valencià → Українська</button>
-      <button id="mode-uk-va">Українська → Valencià</button>
-    </div>
-    <div class="top-info">
-      <div class="xp">Очки (XP): <span id="xp-value">0</span></div>
-      <div class="streak-pill">Серія днів: <span id="streak-days">0</span></div>
-    </div>
-  </div>
-
-  <div class="layout">
-    <div class="course-panel">
-      <div class="course-title">Темы рівня 1 (словникові уроки)</div>
-      <div id="topics-list"></div>
-      <div class="small">
-        Після завершення теми зʼявиться кнопка переходу до наступної.<br />
-        Складні слова можна повторювати окремо.
+  <div class="app">
+    <h1>Valencià ↔ Українська • Тренажер</h1>
+    <div class="top-row">
+      <div class="mode-switch">
+        <button id="mode-va-uk" class="active">Valencià → Укр</button>
+        <button id="mode-uk-va">Укр → Valencià</button>
+      </div>
+      <div class="top-info">
+        <div class="xp-pill">⚡ <span id="xp-value">0</span> XP</div>
+        <div class="streak-pill">🔥 <span id="streak-days">0</span> дн.</div>
       </div>
     </div>
-
-    <div>
-      <div id="lesson-area">
-        <div class="card" id="question-card">
-          <div class="card-main">
-            <div class="question-label" id="question-label"></div>
-            <div class="question-text" id="question-text">—</div>
-            <div class="phonetic" id="phonetic"></div>
-
-            <div class="options" id="options"></div>
-
-            <div class="feedback" id="feedback"></div>
-
-            <div class="controls">
-              <button id="speak-btn">🔊 Озвучити</button>
-              <button id="next-btn">Наступне питання</button>
-              <span class="pill" id="topic-pill">Тема: —</span>
+    <div class="layout">
+      <div class="course-panel">
+        <div class="course-title">Курс (Теми)</div>
+        <div id="topics-list"></div>
+        <div class="small-info">Обирайте тему для тренування. Складні слова можна повторити окремо.</div>
+      </div>
+      <div>
+        <div id="lesson-area">
+          <div class="card">
+            <div class="card-main">
+              <div class="question-label" id="question-label"></div>
+              <div class="question-text" id="question-text">—</div>
+              <div class="phonetic" id="phonetic"></div>
+              <div class="options" id="options"></div>
+              <div class="feedback" id="feedback"></div>
+              <div class="controls">
+                <button class="btn-action" id="speak-btn">🔊 Озвучити</button>
+                <button class="btn-action" id="next-btn">Наступне ➔</button>
+                <span class="pill" id="topic-pill">Тема: —</span>
+              </div>
+            </div>
+            <div class="image-box" id="image-box">
+              <span>Зображення картки</span>
             </div>
           </div>
-          <div class="image-box" id="image-box">
-            <span>У деяких картках тут буде картинка для слова.</span>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-info">
+            <span id="score">Результат: 0 / 0</span>
+            <span id="streak">Питання 1 / 10</span>
+          </div>
+          <div class="actions-row">
+            <button class="btn-action" id="weak-btn">🔄 Повторити складні слова теми</button>
           </div>
         </div>
-
-        <div class="progress">
-          <span id="score">Результат: 0 / 0</span>
-          <span id="streak">Серія: 0 • Питання 1 / 10</span>
-        </div>
-
-        <div class="actions-row">
-          <button id="weak-btn">Повторити складні слова теми</button>
-        </div>
-
-        <div class="small">
-          Цей урок – 10 питань. По завершенні отримаєш очки й зможеш перейти до наступної теми.
-        </div>
-      </div>
-
-      <div id="lesson-end" style="display:none;">
-        <div class="lesson-end">
-          <h2>Урок завершено! 🎉</h2>
-          <p id="end-summary"></p>
-          <div id="end-extra"></div>
-          <div class="badge" id="end-badge">⭐ Молодець!</div>
-          <div style="margin-top: 12px;">
-            <button id="restart-btn">🔁 Пройти ще раз цю тему</button>
-          </div>
-          <div style="margin-top: 8px;">
-            <button id="next-topic-btn" style="display:none;">➡️ Перейти до наступної теми</button>
+        <div id="lesson-end" style="display:none;">
+          <div class="lesson-end">
+            <h2>Урок завершено! 🎉</h2>
+            <p id="end-summary"></p>
+            <div id="end-extra"></div>
+            <div class="badge" id="end-badge">⭐ Чудова робота!</div>
+            <div class="actions-row" style="margin-top: 20px;">
+              <button class="btn-action" id="restart-btn">🔄 Пройти ще раз</button>
+              <button class="btn-action" id="next-topic-btn" style="display:none; background: #2563eb;">➡️ Наступна тема</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-</div>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
