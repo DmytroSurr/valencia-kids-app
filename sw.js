@@ -1,4 +1,4 @@
-const CACHE_NAME = 'valencia-trainer-v5';
+const CACHE_NAME = 'valencia-trainer-v6';
 const ASSETS = [
   './',
   './index.html',
