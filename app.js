@@ -32,7 +32,7 @@ let wordsByTopic = {};
 let userState = loadUserState();
 let currentTopicId = userState.lastTopicId;
 let currentWords = [];
-let currentIndex = 0;
+let sessionQueue = [];
 let mode = 'va-uk';
 let score = 0;
 let attempts = 0;
@@ -130,10 +130,18 @@ function shuffle(array) {
   return array.map(v => ({ v, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ v }) => v);
 }
 
-function pickNewIndex() {
-  if (currentWords.length > 0) {
-    currentIndex = Math.floor(Math.random() * currentWords.length);
+function buildSessionQueue(words, length) {
+  if (!words.length) return [];
+  let queue = [];
+  while (queue.length < length) {
+    let batch = shuffle(words);
+    if (queue.length && words.length > 1 && batch[0] === queue[queue.length - 1]) {
+      const swapIdx = 1;
+      [batch[0], batch[swapIdx]] = [batch[swapIdx], batch[0]];
+    }
+    queue = queue.concat(batch);
   }
+  return queue.slice(0, length);
 }
 
 function initVoices() {
@@ -207,7 +215,8 @@ function updateProgress() {
 }
 
 function renderQuestion() {
-  if (!currentWords.length) {
+  const entry = sessionQueue[currentQuestionNumber - 1];
+  if (!currentWords.length || !entry) {
     questionLabelEl.textContent = 'Тема ще не заповнена';
     questionTextEl.textContent = 'Додай слова у data файл';
     optionsEl.innerHTML = '';
@@ -216,7 +225,6 @@ function renderQuestion() {
   feedbackEl.textContent = '';
   feedbackEl.className = 'feedback';
   questionAnswered = false;
-  const entry = currentWords[currentIndex];
   const topicMeta = course.find(t => t.id === currentTopicId);
   if (topicMeta) topicPillEl.textContent = `Тема: ${topicMeta.title_uk}`;
 
@@ -237,6 +245,7 @@ function renderQuestion() {
   }
   renderImage(entry);
   updateProgress();
+  setTimeout(() => autoSpeak(entry), 300);
 }
 
 function renderOptions(options, correctValue, field, entry) {
@@ -280,10 +289,8 @@ function renderOptions(options, correctValue, field, entry) {
   });
 }
 
-function speakCurrent() {
-  if (!('speechSynthesis' in window)) return alert('Браузер не підтримує озвучку.');
-  const entry = currentWords[currentIndex];
-  if (!entry) return;
+function speakEntry(entry) {
+  if (!('speechSynthesis' in window) || !entry) return false;
   const textToSpeak = mode === 'va-uk' ? entry.va : entry.uk;
   const utterance = new SpeechSynthesisUtterance(textToSpeak);
   const langCode = mode === 'va-uk' ? 'ca-ES' : 'uk-UA';
@@ -295,12 +302,23 @@ function speakCurrent() {
   utterance.rate = 0.9;
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
+  return true;
+}
+
+function autoSpeak(entry) {
+  try {
+    speakEntry(entry);
+  } catch (e) {}
+}
+
+function speakCurrent() {
+  const entry = sessionQueue[currentQuestionNumber - 1];
+  if (!speakEntry(entry)) alert('Браузер не підтримує озвучку.');
 }
 
 function goToNextQuestion() {
   if (currentQuestionNumber >= MAX_QUESTIONS) return showLessonEnd();
   currentQuestionNumber += 1;
-  pickNewIndex();
   renderQuestion();
 }
 
@@ -342,7 +360,7 @@ function restartLesson() {
   lessonEndEl.style.display = 'none';
   lessonAreaEl.style.display = 'block';
   currentWords = wordsByTopic[currentTopicId] || [];
-  pickNewIndex();
+  sessionQueue = buildSessionQueue(currentWords, MAX_QUESTIONS);
   renderQuestion();
 }
 
@@ -435,7 +453,7 @@ function startWeakSession() {
   questionAnswered = false;
   lessonEndEl.style.display = 'none';
   lessonAreaEl.style.display = 'block';
-  pickNewIndex();
+  sessionQueue = buildSessionQueue(currentWords, MAX_QUESTIONS);
   renderQuestion();
 }
 
