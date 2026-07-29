@@ -213,7 +213,7 @@
         "va": "passadís",
         "uk": "коридор",
         "phonetic": "[пасаді́с]",
-        "emoji": "🚪"
+        "emoji": "🖼️"
       }
     ],
     "animals1": [
@@ -435,7 +435,7 @@
         "va": "cap",
         "uk": "голова",
         "phonetic": "[кап]",
-        "emoji": "🗣️"
+        "emoji": "👤"
       },
       {
         "va": "mà",
@@ -501,43 +501,43 @@
         "va": "dilluns",
         "uk": "понеділок",
         "phonetic": "[ділью́нс]",
-        "emoji": "📅"
+        "emoji": "1️⃣"
       },
       {
         "va": "dimarts",
         "uk": "вівторок",
         "phonetic": "[діма́ртс]",
-        "emoji": "📅"
+        "emoji": "2️⃣"
       },
       {
         "va": "dimecres",
         "uk": "середа",
         "phonetic": "[діме́крес]",
-        "emoji": "📅"
+        "emoji": "3️⃣"
       },
       {
         "va": "dijous",
         "uk": "четвер",
         "phonetic": "[діжо́ус]",
-        "emoji": "📅"
+        "emoji": "4️⃣"
       },
       {
         "va": "divendres",
         "uk": "п'ятниця",
         "phonetic": "[дівендре́с]",
-        "emoji": "📅"
+        "emoji": "5️⃣"
       },
       {
         "va": "dissabte",
         "uk": "субота",
         "phonetic": "[діса́бте]",
-        "emoji": "📅"
+        "emoji": "6️⃣"
       },
       {
         "va": "diumenge",
         "uk": "неділя",
         "phonetic": "[діуме́нже]",
-        "emoji": "📅"
+        "emoji": "7️⃣"
       }
     ],
     "temps2": [
@@ -545,13 +545,13 @@
         "va": "gener",
         "uk": "січень",
         "phonetic": "[жене́р]",
-        "emoji": "❄️"
+        "emoji": "🎆"
       },
       {
         "va": "febrer",
         "uk": "лютий",
         "phonetic": "[фебре́р]",
-        "emoji": "❄️"
+        "emoji": "💌"
       }
     ],
     "phrases_casa1": [
@@ -566,6 +566,30 @@
         "uk": "Це кухня.",
         "phonetic": "[айшо́ ес ла ку́йна]",
         "emoji": "🍳"
+      },
+      {
+        "va": "Vine ací",
+        "uk": "Йди сюди",
+        "phonetic": "[ві́не асі́]",
+        "emoji": "👋"
+      },
+      {
+        "va": "Vull beure aigua",
+        "uk": "Я хочу пити воду",
+        "phonetic": "[вуль бе́уре а́йгуа]",
+        "emoji": "🥤"
+      },
+      {
+        "va": "On és el meu joguet?",
+        "uk": "Де моя іграшка?",
+        "phonetic": "[он ес ел ме́у жоге́т]",
+        "emoji": "🧸"
+      },
+      {
+        "va": "Ajuda'm, per favor",
+        "uk": "Допоможи мені, будь ласка",
+        "phonetic": "[ажу́дам пер фаво́р]",
+        "emoji": "🙏"
       }
     ],
     "phrases_escola1": [
@@ -574,6 +598,30 @@
         "uk": "Відкрий книжку",
         "phonetic": "[обре ел льї́бре]",
         "emoji": "📖"
+      },
+      {
+        "va": "Seu al teu lloc",
+        "uk": "Сідай на своє місце",
+        "phonetic": "[се́у ал те́у льок]",
+        "emoji": "🪑"
+      },
+      {
+        "va": "Alça la mà",
+        "uk": "Підніми руку",
+        "phonetic": "[а́лса ла ма]",
+        "emoji": "🙋"
+      },
+      {
+        "va": "És hora de pati",
+        "uk": "Час перерви",
+        "phonetic": "[ес о́ра де па́ті]",
+        "emoji": "🤸"
+      },
+      {
+        "va": "On és el meu llapis?",
+        "uk": "Де мій олівець?",
+        "phonetic": "[он ес ел ме́у льа́піс]",
+        "emoji": "✏️"
       }
     ],
     "phrases_likes1": [
@@ -582,6 +630,30 @@
         "uk": "Мені подобається яблуко",
         "phonetic": "[магра́да ла по́ма]",
         "emoji": "🍎"
+      },
+      {
+        "va": "M'agrada jugar",
+        "uk": "Мені подобається гратись",
+        "phonetic": "[магра́да жуга́р]",
+        "emoji": "🎲"
+      },
+      {
+        "va": "No m'agrada la pluja",
+        "uk": "Мені не подобається дощ",
+        "phonetic": "[но магра́да ла плу́жа]",
+        "emoji": "🌧️"
+      },
+      {
+        "va": "M'encanta el xocolate",
+        "uk": "Я обожнюю шоколад",
+        "phonetic": "[менка́нта ел шоколате]",
+        "emoji": "🍫"
+      },
+      {
+        "va": "No m'agraden les aranyes",
+        "uk": "Мені не подобаються павуки",
+        "phonetic": "[но магра́ден лес ара́ньєс]",
+        "emoji": "🕷️"
       }
     ]
   }
