@@ -1,7 +1,7 @@
 {
   "name": "Valencià Trainer",
   "short_name": "Valencià",
-  "description": "Тренувальний курс валенсійської мови для дітей",
+  "description": "Курс валенсійської мови для дітей",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f172a",
