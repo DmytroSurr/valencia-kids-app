@@ -289,8 +289,31 @@ function renderOptions(options, correctValue, field, entry) {
   });
 }
 
+let currentAudioEl = null;
+
+function playRecordedAudio(path) {
+  try {
+    if (currentAudioEl) {
+      currentAudioEl.pause();
+      currentAudioEl.currentTime = 0;
+    }
+    currentAudioEl = new Audio(path);
+    currentAudioEl.play().catch(() => {});
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function speakEntry(entry) {
-  if (!('speechSynthesis' in window) || !entry) return false;
+  if (!entry) return false;
+
+  // Prefer a real recorded Valencian audio file over browser TTS when available.
+  if (mode === 'va-uk' && entry.audio) {
+    if (playRecordedAudio(entry.audio)) return true;
+  }
+
+  if (!('speechSynthesis' in window)) return false;
   const textToSpeak = mode === 'va-uk' ? entry.va : entry.uk;
   const utterance = new SpeechSynthesisUtterance(textToSpeak);
   const langCode = mode === 'va-uk' ? 'ca-ES' : 'uk-UA';

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'valencia-trainer-v3';
+const CACHE_NAME = 'valencia-trainer-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -29,9 +29,19 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
+  if (e.request.method !== 'GET') return;
   e.respondWith(
     caches.match(e.request).then((cachedResponse) => {
-      return cachedResponse || fetch(e.request);
+      if (cachedResponse) return cachedResponse;
+      return fetch(e.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(e.request, responseClone));
+          }
+          return networkResponse;
+        })
+        .catch(() => cachedResponse);
     })
   );
 });
