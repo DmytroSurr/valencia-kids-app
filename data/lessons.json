@@ -164,6 +164,30 @@
         "uk": "бабуся",
         "phonetic": "[а́вія]",
         "emoji": "👵"
+      },
+      {
+        "va": "oncle",
+        "uk": "дядько",
+        "phonetic": "[о́нкле]",
+        "emoji": "🧔"
+      },
+      {
+        "va": "tia",
+        "uk": "тітка",
+        "phonetic": "[ті́я]",
+        "emoji": "👩‍🦰"
+      },
+      {
+        "va": "cosí",
+        "uk": "кузен",
+        "phonetic": "[козі́]",
+        "emoji": "🧑"
+      },
+      {
+        "va": "bebé",
+        "uk": "немовля",
+        "phonetic": "[бебе́]",
+        "emoji": "👶"
       }
     ],
     "casa1": [
@@ -258,6 +282,24 @@
         "uk": "кролик",
         "phonetic": "[коні́ль]",
         "emoji": "🐰"
+      },
+      {
+        "va": "lloro",
+        "uk": "папуга",
+        "phonetic": "[льо́ро]",
+        "emoji": "🦜"
+      },
+      {
+        "va": "eriçó",
+        "uk": "їжачок",
+        "phonetic": "[еризо́]",
+        "emoji": "🦔"
+      },
+      {
+        "va": "ratolí",
+        "uk": "мишка",
+        "phonetic": "[ратолі́]",
+        "emoji": "🐭"
       }
     ],
     "animals2": [
@@ -290,6 +332,24 @@
         "uk": "курка",
         "phonetic": "[гальї́на]",
         "emoji": "🐔"
+      },
+      {
+        "va": "ase",
+        "uk": "осел",
+        "phonetic": "[а́се]",
+        "emoji": "🫏"
+      },
+      {
+        "va": "gall",
+        "uk": "півень",
+        "phonetic": "[галь]",
+        "emoji": "🐓"
+      },
+      {
+        "va": "ànec",
+        "uk": "качка",
+        "phonetic": "[а́нек]",
+        "emoji": "🦆"
       }
     ],
     "animals3": [
@@ -316,6 +376,30 @@
         "uk": "ведмідь",
         "phonetic": "[ос]",
         "emoji": "🐻"
+      },
+      {
+        "va": "girafa",
+        "uk": "жираф",
+        "phonetic": "[жира́фа]",
+        "emoji": "🦒"
+      },
+      {
+        "va": "mico",
+        "uk": "мавпа",
+        "phonetic": "[мі́ко]",
+        "emoji": "🐒"
+      },
+      {
+        "va": "zebra",
+        "uk": "зебра",
+        "phonetic": "[зе́бра]",
+        "emoji": "🦓"
+      },
+      {
+        "va": "cocodril",
+        "uk": "крокодил",
+        "phonetic": "[кокодрі́л]",
+        "emoji": "🐊"
       }
     ],
     "menjar1": [
@@ -342,6 +426,30 @@
         "uk": "виноград",
         "phonetic": "[раї́м]",
         "emoji": "🍇"
+      },
+      {
+        "va": "maduixa",
+        "uk": "полуниця",
+        "phonetic": "[мадуї́ша]",
+        "emoji": "🍓"
+      },
+      {
+        "va": "pera",
+        "uk": "груша",
+        "phonetic": "[пе́ра]",
+        "emoji": "🍐"
+      },
+      {
+        "va": "síndria",
+        "uk": "кавун",
+        "phonetic": "[сі́ндрія]",
+        "emoji": "🍉"
+      },
+      {
+        "va": "meló",
+        "uk": "диня",
+        "phonetic": "[мело́]",
+        "emoji": "🍈"
       }
     ],
     "menjar2": [
@@ -368,6 +476,30 @@
         "uk": "морква",
         "phonetic": "[сенальо́рія]",
         "emoji": "🥕"
+      },
+      {
+        "va": "pebrera",
+        "uk": "перець",
+        "phonetic": "[пебре́ра]",
+        "emoji": "🫑"
+      },
+      {
+        "va": "cogombre",
+        "uk": "огірок",
+        "phonetic": "[когомбре]",
+        "emoji": "🥒"
+      },
+      {
+        "va": "enciam",
+        "uk": "салат (латук)",
+        "phonetic": "[енсіа́м]",
+        "emoji": "🥬"
+      },
+      {
+        "va": "carbassó",
+        "uk": "кабачок",
+        "phonetic": "[карбассо́]",
+        "emoji": "🥦"
       }
     ],
     "menjar3": [
@@ -394,6 +526,30 @@
         "uk": "сир",
         "phonetic": "[форма́тже]",
         "emoji": "🧀"
+      },
+      {
+        "va": "suc",
+        "uk": "сік",
+        "phonetic": "[сук]",
+        "emoji": "🧃"
+      },
+      {
+        "va": "ou",
+        "uk": "яйце",
+        "phonetic": "[оу]",
+        "emoji": "🥚"
+      },
+      {
+        "va": "arròs",
+        "uk": "рис",
+        "phonetic": "[аро́с]",
+        "emoji": "🍚"
+      },
+      {
+        "va": "sopa",
+        "uk": "суп",
+        "phonetic": "[со́па]",
+        "emoji": "🍲"
       }
     ],
     "roba1": [
@@ -414,6 +570,24 @@
         "uk": "сукня",
         "phonetic": "[весті́т]",
         "emoji": "👗"
+      },
+      {
+        "va": "jaqueta",
+        "uk": "куртка",
+        "phonetic": "[жаке́та]",
+        "emoji": "🧥"
+      },
+      {
+        "va": "gorra",
+        "uk": "кепка",
+        "phonetic": "[го́рра]",
+        "emoji": "🧢"
+      },
+      {
+        "va": "mitjons",
+        "uk": "шкарпетки",
+        "phonetic": "[мітжо́нс]",
+        "emoji": "🧦"
       }
     ],
     "roba2": [
@@ -428,6 +602,24 @@
         "uk": "взуття / туфлі",
         "phonetic": "[саба́тес]",
         "emoji": "👞"
+      },
+      {
+        "va": "xandall",
+        "uk": "спортивний костюм",
+        "phonetic": "[шанда́ль]",
+        "emoji": "🩳"
+      },
+      {
+        "va": "botes",
+        "uk": "чоботи",
+        "phonetic": "[бо́тес]",
+        "emoji": "🥾"
+      },
+      {
+        "va": "sandàlies",
+        "uk": "сандалі",
+        "phonetic": "[санда́льєс]",
+        "emoji": "🩴"
       }
     ],
     "cos1": [
@@ -454,6 +646,30 @@
         "uk": "око",
         "phonetic": "[уль]",
         "emoji": "👁️"
+      },
+      {
+        "va": "nas",
+        "uk": "ніс",
+        "phonetic": "[нас]",
+        "emoji": "👃"
+      },
+      {
+        "va": "boca",
+        "uk": "рот",
+        "phonetic": "[бо́ка]",
+        "emoji": "👄"
+      },
+      {
+        "va": "orella",
+        "uk": "вухо",
+        "phonetic": "[оре́лья]",
+        "emoji": "👂"
+      },
+      {
+        "va": "cabell",
+        "uk": "волосся",
+        "phonetic": "[кабе́ль]",
+        "emoji": "💇"
       }
     ],
     "colors1": [
@@ -480,6 +696,30 @@
         "uk": "зелений",
         "phonetic": "[верт]",
         "emoji": "🟢"
+      },
+      {
+        "va": "negre",
+        "uk": "чорний",
+        "phonetic": "[не́гре]",
+        "emoji": "⚫"
+      },
+      {
+        "va": "blanc",
+        "uk": "білий",
+        "phonetic": "[блан]",
+        "emoji": "⚪"
+      },
+      {
+        "va": "rosa",
+        "uk": "рожевий",
+        "phonetic": "[ро́за]",
+        "emoji": "🩷"
+      },
+      {
+        "va": "marró",
+        "uk": "коричневий",
+        "phonetic": "[маро́]",
+        "emoji": "🟤"
       }
     ],
     "formes1": [
@@ -494,6 +734,30 @@
         "uk": "квадрат",
         "phonetic": "[куадра́т]",
         "emoji": "⏹️"
+      },
+      {
+        "va": "triangle",
+        "uk": "трикутник",
+        "phonetic": "[тріа́нгле]",
+        "emoji": "🔺"
+      },
+      {
+        "va": "estrella",
+        "uk": "зірка",
+        "phonetic": "[естре́лья]",
+        "emoji": "⭐"
+      },
+      {
+        "va": "cor",
+        "uk": "серце",
+        "phonetic": "[кор]",
+        "emoji": "❤️"
+      },
+      {
+        "va": "rectangle",
+        "uk": "прямокутник",
+        "phonetic": "[ректа́нгле]",
+        "emoji": "🟥"
       }
     ],
     "temps1": [
@@ -552,6 +816,66 @@
         "uk": "лютий",
         "phonetic": "[фебре́р]",
         "emoji": "💌"
+      },
+      {
+        "va": "març",
+        "uk": "березень",
+        "phonetic": "[марс]",
+        "emoji": "🌱"
+      },
+      {
+        "va": "abril",
+        "uk": "квітень",
+        "phonetic": "[абрі́ль]",
+        "emoji": "🌷"
+      },
+      {
+        "va": "maig",
+        "uk": "травень",
+        "phonetic": "[майч]",
+        "emoji": "🌸"
+      },
+      {
+        "va": "juny",
+        "uk": "червень",
+        "phonetic": "[жунь]",
+        "emoji": "☀️"
+      },
+      {
+        "va": "juliol",
+        "uk": "липень",
+        "phonetic": "[жуліо́л]",
+        "emoji": "🏖️"
+      },
+      {
+        "va": "agost",
+        "uk": "серпень",
+        "phonetic": "[аго́ст]",
+        "emoji": "🍉"
+      },
+      {
+        "va": "setembre",
+        "uk": "вересень",
+        "phonetic": "[сете́мбре]",
+        "emoji": "🍂"
+      },
+      {
+        "va": "octubre",
+        "uk": "жовтень",
+        "phonetic": "[окту́бре]",
+        "emoji": "🎃"
+      },
+      {
+        "va": "novembre",
+        "uk": "листопад",
+        "phonetic": "[нове́мбре]",
+        "emoji": "🍁"
+      },
+      {
+        "va": "desembre",
+        "uk": "грудень",
+        "phonetic": "[десе́мбре]",
+        "emoji": "🎄"
       }
     ],
     "phrases_casa1": [
@@ -590,6 +914,30 @@
         "uk": "Допоможи мені, будь ласка",
         "phonetic": "[ажу́дам пер фаво́р]",
         "emoji": "🙏"
+      },
+      {
+        "va": "Tanca la porta",
+        "uk": "Зачини двері",
+        "phonetic": "[та́нка ла по́рта]",
+        "emoji": "🚪"
+      },
+      {
+        "va": "És l'hora de dinar",
+        "uk": "Час обідати",
+        "phonetic": "[ес ло́ра де діна́р]",
+        "emoji": "🍽️"
+      },
+      {
+        "va": "Vés a dormir",
+        "uk": "Йди спати",
+        "phonetic": "[вес а дормі́р]",
+        "emoji": "😴"
+      },
+      {
+        "va": "Renta't les mans",
+        "uk": "Помий руки",
+        "phonetic": "[ре́нтат лес манс]",
+        "emoji": "🧼"
       }
     ],
     "phrases_escola1": [
@@ -622,6 +970,30 @@
         "uk": "Де мій олівець?",
         "phonetic": "[он ес ел ме́у льа́піс]",
         "emoji": "✏️"
+      },
+      {
+        "va": "Para atenció",
+        "uk": "Будь уважним",
+        "phonetic": "[па́ра атенсіо́]",
+        "emoji": "👂"
+      },
+      {
+        "va": "Fes els deures",
+        "uk": "Зроби домашнє завдання",
+        "phonetic": "[фес елс де́урес]",
+        "emoji": "📝"
+      },
+      {
+        "va": "On és la meua motxilla?",
+        "uk": "Де мій рюкзак?",
+        "phonetic": "[он ес ла ме́уа мотчі́лья]",
+        "emoji": "🎒"
+      },
+      {
+        "va": "Molt bé!",
+        "uk": "Дуже добре!",
+        "phonetic": "[мольт бе]",
+        "emoji": "👍"
       }
     ],
     "phrases_likes1": [
@@ -654,6 +1026,36 @@
         "uk": "Мені не подобаються павуки",
         "phonetic": "[но магра́ден лес ара́ньєс]",
         "emoji": "🕷️"
+      },
+      {
+        "va": "M'agrada nadar",
+        "uk": "Мені подобається плавати",
+        "phonetic": "[магра́да нада́р]",
+        "emoji": "🏊"
+      },
+      {
+        "va": "M'agraden els gats",
+        "uk": "Мені подобаються коти",
+        "phonetic": "[магра́ден елс гатс]",
+        "emoji": "🐱"
+      },
+      {
+        "va": "No m'agrada l'hivern",
+        "uk": "Мені не подобається зима",
+        "phonetic": "[но магра́да лівер́н]",
+        "emoji": "🥶"
+      },
+      {
+        "va": "M'encanten els llibres",
+        "uk": "Я обожнюю книжки",
+        "phonetic": "[менка́нтен елс льї́брес]",
+        "emoji": "📚"
+      },
+      {
+        "va": "Prefereixo el mar",
+        "uk": "Я більше люблю море",
+        "phonetic": "[префере́йшо ел мар]",
+        "emoji": "🌊"
       }
     ]
   }
