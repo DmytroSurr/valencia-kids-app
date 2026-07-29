@@ -1,12 +1,19 @@
 const STORAGE_KEY = 'valenciaTrainerState';
 const MAX_QUESTIONS = 10;
-const COURSE_URL = 'data/course.json';
+const LESSONS_URL = 'data/lessons.json';
 
-const TOPIC_IDS = [
-  'casa1','casa2','escola1','escola2','jocs1','jocs2',
-  'animals1','animals2','animals3','menjar1','menjar2','menjar3',
-  'roba1','roba2','cos1','colors1','formes1','familia1','temps1','temps2',
-  'phrases_casa1','phrases_escola1','phrases_likes1'
+const BADGES = [
+  { id: 'streak3', type: 'streak', threshold: 3, icon: '🔥', title: '3 дні поспіль', desc: 'Займайся 3 дні підряд' },
+  { id: 'streak7', type: 'streak', threshold: 7, icon: '🔥', title: 'Тиждень поспіль', desc: 'Займайся 7 днів підряд' },
+  { id: 'streak14', type: 'streak', threshold: 14, icon: '🔥', title: '2 тижні поспіль', desc: 'Займайся 14 днів підряд' },
+  { id: 'streak30', type: 'streak', threshold: 30, icon: '🔥', title: 'Місяць поспіль', desc: 'Займайся 30 днів підряд' },
+  { id: 'mastered1', type: 'mastered', threshold: 1, icon: '⭐', title: 'Перший крок', desc: 'Опануй першу тему' },
+  { id: 'mastered5', type: 'mastered', threshold: 5, icon: '🌟', title: 'П’ять тем', desc: 'Опануй 5 тем' },
+  { id: 'mastered10', type: 'mastered', threshold: 10, icon: '💫', title: 'Десять тем', desc: 'Опануй 10 тем' },
+  { id: 'masteredAll', type: 'masteredAll', threshold: 1, icon: '🏆', title: 'Весь курс', desc: 'Опануй усі теми курсу' },
+  { id: 'xp100', type: 'xp', threshold: 100, icon: '⚡', title: '100 XP', desc: 'Набери 100 очок досвіду' },
+  { id: 'xp500', type: 'xp', threshold: 500, icon: '⚡', title: '500 XP', desc: 'Набери 500 очок досвіду' },
+  { id: 'xp1000', type: 'xp', threshold: 1000, icon: '⚡', title: '1000 XP', desc: 'Набери 1000 очок досвіду' }
 ];
 
 const DEFAULT_STATE = {
@@ -16,13 +23,14 @@ const DEFAULT_STATE = {
   lastActiveDate: null,
   progress: {},
   weakItems: {},
-  lastTopicId: 'casa1'
+  badges: {},
+  lastTopicId: null
 };
 
 let course = [];
 let wordsByTopic = {};
 let userState = loadUserState();
-let currentTopicId = userState.lastTopicId || 'casa1';
+let currentTopicId = userState.lastTopicId;
 let currentWords = [];
 let currentIndex = 0;
 let mode = 'va-uk';
@@ -58,11 +66,20 @@ const endSummaryEl = $('end-summary');
 const endExtraEl = $('end-extra');
 const restartBtn = $('restart-btn');
 const nextTopicBtn = $('next-topic-btn');
+const badgesBtn = $('badges-btn');
+const parentBtn = $('parent-btn');
+const badgesModal = $('badges-modal');
+const badgesGridEl = $('badges-grid');
+const badgesCloseBtn = $('badges-close');
+const parentModal = $('parent-modal');
+const parentCloseBtn = $('parent-close');
+const parentStatsEl = $('parent-stats');
+const parentWeakListEl = $('parent-weak-list');
 
 function loadUserState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? { ...DEFAULT_STATE, ...JSON.parse(raw) } : structuredClone(DEFAULT_STATE);
+    return raw ? { ...structuredClone(DEFAULT_STATE), ...JSON.parse(raw) } : structuredClone(DEFAULT_STATE);
   } catch {
     return structuredClone(DEFAULT_STATE);
   }
@@ -96,6 +113,15 @@ function playSound(type) {
       gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.35);
       osc.start();
       osc.stop(ctx.currentTime + 0.35);
+    } else if (type === 'badge') {
+      osc.type = 'sine';
+      [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+        osc.frequency.setValueAtTime(f, ctx.currentTime + i * 0.09);
+      });
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.4);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.4);
     }
   } catch (e) {}
 }
@@ -120,13 +146,14 @@ function initVoices() {
 }
 
 async function loadData() {
-  const [courseRes, ...topicRes] = await Promise.all([
-    fetch(COURSE_URL),
-    ...TOPIC_IDS.map(id => fetch(`data/${id}.json`))
-  ]);
-  course = await courseRes.json();
-  const entries = await Promise.all(topicRes.map(r => r.json()));
-  wordsByTopic = Object.fromEntries(TOPIC_IDS.map((id, i) => [id, entries[i]]));
+  const res = await fetch(LESSONS_URL);
+  const json = await res.json();
+  course = [...json.modules].sort((a, b) => a.order - b.order);
+  wordsByTopic = json.lessons_data || {};
+  if (!currentTopicId || !wordsByTopic[currentTopicId]) {
+    currentTopicId = course.length ? course[0].id : null;
+  }
+  userState.lastTopicId = currentTopicId;
   currentWords = wordsByTopic[currentTopicId] || [];
   renderTopicsList();
   restartLesson();
@@ -192,7 +219,7 @@ function renderQuestion() {
   const entry = currentWords[currentIndex];
   const topicMeta = course.find(t => t.id === currentTopicId);
   if (topicMeta) topicPillEl.textContent = `Тема: ${topicMeta.title_uk}`;
-  
+
   const distractors = currentWords.filter(w => w.va !== entry.va);
   const optionsCount = Math.min(distractors.length, 3);
   const selectedOptions = shuffle(distractors).slice(0, optionsCount).concat(entry);
@@ -224,7 +251,7 @@ function renderOptions(options, correctValue, field, entry) {
       questionAnswered = true;
       attempts += 1;
       const allButtons = Array.from(optionsEl.children);
-      
+
       if (btn.dataset.value === correctValue) {
         score += 1;
         streak += 1;
@@ -260,8 +287,8 @@ function speakCurrent() {
   const textToSpeak = mode === 'va-uk' ? entry.va : entry.uk;
   const utterance = new SpeechSynthesisUtterance(textToSpeak);
   const langCode = mode === 'va-uk' ? 'ca-ES' : 'uk-UA';
-  const voiceMatch = availableVoices.find(v => v.lang === langCode) || 
-                     availableVoices.find(v => v.lang.startsWith('es')) || 
+  const voiceMatch = availableVoices.find(v => v.lang === langCode) ||
+                     availableVoices.find(v => v.lang.startsWith('es')) ||
                      availableVoices[0];
   if (voiceMatch) utterance.voice = voiceMatch;
   utterance.lang = langCode;
@@ -283,8 +310,19 @@ function showLessonEnd() {
   lessonEndEl.style.display = 'block';
   const ratio = attempts === 0 ? 0 : score / attempts;
   endSummaryEl.textContent = `Ви відповіли правильно на ${score} з ${attempts} питань!`;
-  endExtraEl.textContent = ratio === 1 ? 'Ідеальний результат! 🎉' : (ratio >= 0.7 ? 'Дуже добре! 👍' : 'Потренуємося ще! 💪');
-  handleLessonComplete();
+  const newBadges = handleLessonComplete();
+  let extraText = ratio === 1 ? 'Ідеальний результат! 🎉' : (ratio >= 0.7 ? 'Дуже добре! 👍' : 'Потренуємося ще! 💪');
+  endExtraEl.innerHTML = '';
+  const ratioP = document.createElement('p');
+  ratioP.textContent = extraText;
+  endExtraEl.appendChild(ratioP);
+  if (newBadges.length) {
+    playSound('badge');
+    const badgeP = document.createElement('p');
+    badgeP.className = 'new-badge-line';
+    badgeP.textContent = `Нова нагорода: ${newBadges.map(b => `${b.icon} ${b.title}`).join(', ')}`;
+    endExtraEl.appendChild(badgeP);
+  }
   renderTopicsList();
   const nextTopic = getNextTopic(currentTopicId);
   if (nextTopic) {
@@ -323,6 +361,30 @@ function getNextTopic(currentId) {
   return course.find(t => t.order === current.order + 1) || null;
 }
 
+function getMasteredCount() {
+  return Object.values(userState.progress).filter(p => p.bestScore >= 9).length;
+}
+
+function checkAndAwardBadges() {
+  const mastered = getMasteredCount();
+  const stats = {
+    streak: userState.streakDays,
+    mastered,
+    masteredAll: course.length > 0 && mastered >= course.length ? 1 : 0,
+    xp: userState.totalXp
+  };
+  const newlyEarned = [];
+  BADGES.forEach(badge => {
+    if (userState.badges[badge.id]) return;
+    const value = stats[badge.type];
+    if (value >= badge.threshold) {
+      userState.badges[badge.id] = new Date().toISOString();
+      newlyEarned.push(badge);
+    }
+  });
+  return newlyEarned;
+}
+
 function handleLessonComplete() {
   const topicProg = userState.progress[currentTopicId] || { completedLessons: 0, bestScore: 0, lastCompleted: null };
   topicProg.completedLessons += 1;
@@ -331,8 +393,10 @@ function handleLessonComplete() {
   userState.progress[currentTopicId] = topicProg;
   userState.totalXp += score + 10;
   updateStreakDays();
+  const newBadges = checkAndAwardBadges();
   saveUserState();
   updateProgress();
+  return newBadges;
 }
 
 function updateStreakDays() {
@@ -375,6 +439,71 @@ function startWeakSession() {
   renderQuestion();
 }
 
+function renderBadgesModal() {
+  badgesGridEl.innerHTML = '';
+  BADGES.forEach(badge => {
+    const earned = Boolean(userState.badges[badge.id]);
+    const div = document.createElement('div');
+    div.className = 'badge-card' + (earned ? ' earned' : ' locked');
+    const iconSpan = document.createElement('div');
+    iconSpan.className = 'badge-card-icon';
+    iconSpan.textContent = badge.icon;
+    const titleSpan = document.createElement('div');
+    titleSpan.className = 'badge-card-title';
+    titleSpan.textContent = badge.title;
+    const descSpan = document.createElement('div');
+    descSpan.className = 'badge-card-desc';
+    descSpan.textContent = badge.desc;
+    div.append(iconSpan, titleSpan, descSpan);
+    badgesGridEl.appendChild(div);
+  });
+}
+
+function renderParentDashboard() {
+  const mastered = getMasteredCount();
+  parentStatsEl.innerHTML = '';
+  const stats = [
+    { label: 'Всього XP', value: userState.totalXp },
+    { label: 'Днів поспіль', value: userState.streakDays },
+    { label: 'Тем опановано', value: `${mastered} / ${course.length}` },
+    { label: 'Нагород отримано', value: `${Object.keys(userState.badges).length} / ${BADGES.length}` }
+  ];
+  stats.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'parent-stat';
+    div.innerHTML = `<div class="parent-stat-value">${s.value}</div><div class="parent-stat-label">${s.label}</div>`;
+    parentStatsEl.appendChild(div);
+  });
+
+  const allWeak = [];
+  Object.entries(userState.weakItems).forEach(([topicId, words]) => {
+    const topicMeta = course.find(t => t.id === topicId);
+    Object.values(words).forEach(item => {
+      allWeak.push({
+        topicTitle: topicMeta ? topicMeta.title_uk : topicId,
+        va: item.entry.va,
+        uk: item.entry.uk,
+        errors: item.errors
+      });
+    });
+  });
+  allWeak.sort((a, b) => b.errors - a.errors);
+  parentWeakListEl.innerHTML = '';
+  if (!allWeak.length) {
+    const p = document.createElement('p');
+    p.className = 'small-info';
+    p.textContent = 'Поки немає слів, у яких дитина часто помиляється. 🌟';
+    parentWeakListEl.appendChild(p);
+  } else {
+    allWeak.slice(0, 10).forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'parent-weak-row';
+      row.innerHTML = `<span>${item.va} — ${item.uk}</span><span class="parent-weak-meta">${item.topicTitle} · ${item.errors} пом.</span>`;
+      parentWeakListEl.appendChild(row);
+    });
+  }
+}
+
 speakBtn.addEventListener('click', speakCurrent);
 nextBtn.addEventListener('click', () => {
   if (!questionAnswered) return feedbackEl.textContent = 'Спочатку оберіть відповідь 😊';
@@ -402,9 +531,27 @@ nextTopicBtn.addEventListener('click', () => {
   if (next) changeTopic(next.id);
 });
 
+badgesBtn.addEventListener('click', () => {
+  renderBadgesModal();
+  badgesModal.style.display = 'flex';
+});
+badgesCloseBtn.addEventListener('click', () => badgesModal.style.display = 'none');
+badgesModal.addEventListener('click', (e) => {
+  if (e.target === badgesModal) badgesModal.style.display = 'none';
+});
+
+parentBtn.addEventListener('click', () => {
+  renderParentDashboard();
+  parentModal.style.display = 'flex';
+});
+parentCloseBtn.addEventListener('click', () => parentModal.style.display = 'none');
+parentModal.addEventListener('click', (e) => {
+  if (e.target === parentModal) parentModal.style.display = 'none';
+});
+
 initVoices();
 loadData().catch(err => {
   console.error(err);
   questionLabelEl.textContent = 'Помилка завантаження';
-  questionTextEl.textContent = 'Перевір наявність файлів у data/';
+  questionTextEl.textContent = 'Перевір наявність файлу data/lessons.json';
 });

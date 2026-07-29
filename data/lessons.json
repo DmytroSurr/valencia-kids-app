@@ -92,49 +92,80 @@
       "title_uk": "Форми"
     },
     {
-      "id": "familia1",
-      "order": 14,
-      "level": 1,
-      "type": "vocabulary",
-      "title_uk": "Родина"
-    },
-    {
       "id": "temps1",
-      "order": 15,
+      "order": 14,
       "level": 1,
       "type": "vocabulary",
       "title_uk": "Дні тижня"
     },
     {
       "id": "temps2",
-      "order": 16,
+      "order": 15,
       "level": 1,
       "type": "vocabulary",
       "title_uk": "Місяці"
     },
     {
       "id": "phrases_casa1",
-      "order": 17,
+      "order": 16,
       "level": 2,
       "type": "phrases",
       "title_uk": "Фрази: У домі"
     },
     {
       "id": "phrases_escola1",
-      "order": 18,
+      "order": 17,
       "level": 2,
       "type": "phrases",
       "title_uk": "Фрази: У школі"
     },
     {
       "id": "phrases_likes1",
-      "order": 19,
+      "order": 18,
       "level": 2,
       "type": "phrases",
       "title_uk": "Фрази: Вподобання"
     }
   ],
   "lessons_data": {
+    "family1": [
+      {
+        "va": "pare",
+        "uk": "батько",
+        "phonetic": "[па́ре]",
+        "emoji": "👨"
+      },
+      {
+        "va": "mare",
+        "uk": "мати",
+        "phonetic": "[ма́ре]",
+        "emoji": "👩"
+      },
+      {
+        "va": "germà",
+        "uk": "брат",
+        "phonetic": "[жерма́]",
+        "emoji": "👦"
+      },
+      {
+        "va": "germana",
+        "uk": "сестра",
+        "phonetic": "[жерма́на]",
+        "emoji": "👧"
+      },
+      {
+        "va": "avi",
+        "uk": "дідусь",
+        "phonetic": "[а́ві]",
+        "emoji": "👴"
+      },
+      {
+        "va": "àvia",
+        "uk": "бабуся",
+        "phonetic": "[а́вія]",
+        "emoji": "👵"
+      }
+    ],
     "casa1": [
       {
         "va": "casa",
@@ -463,32 +494,6 @@
         "uk": "квадрат",
         "phonetic": "[куадра́т]",
         "emoji": "⏹️"
-      }
-    ],
-    "familia1": [
-      {
-        "va": "pare",
-        "uk": "батько",
-        "phonetic": "[па́ре]",
-        "emoji": "👨"
-      },
-      {
-        "va": "mare",
-        "uk": "мати",
-        "phonetic": "[ма́ре]",
-        "emoji": "👩"
-      },
-      {
-        "va": "germà",
-        "uk": "брат",
-        "phonetic": "[жерма́]",
-        "emoji": "👦"
-      },
-      {
-        "va": "germana",
-        "uk": "сестра",
-        "phonetic": "[жерма́на]",
-        "emoji": "👧"
       }
     ],
     "temps1": [

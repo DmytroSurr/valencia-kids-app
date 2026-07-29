@@ -30,6 +30,8 @@
       <div class="top-info">
         <div class="xp-pill">⚡ <span id="xp-value">0</span> XP</div>
         <div class="streak-pill">🔥 <span id="streak-days">0</span> дн.</div>
+        <button class="icon-btn" id="badges-btn" title="Досягнення">🏆</button>
+        <button class="icon-btn" id="parent-btn" title="Панель батьків">👪</button>
       </div>
     </div>
     <div class="layout">
@@ -83,6 +85,31 @@
       </div>
     </div>
   </div>
+
+  <div class="modal-overlay" id="badges-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>🏆 Досягнення</h2>
+        <button class="modal-close" id="badges-close">✕</button>
+      </div>
+      <div class="badges-grid" id="badges-grid"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="parent-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>👪 Панель батьків</h2>
+        <button class="modal-close" id="parent-close">✕</button>
+      </div>
+      <div class="parent-stats" id="parent-stats"></div>
+      <div class="parent-weak-section">
+        <div class="course-title">Слова, у яких найчастіше помиляється дитина</div>
+        <div id="parent-weak-list"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
