@@ -33,6 +33,8 @@ let userState = loadUserState();
 let currentTopicId = userState.lastTopicId;
 let currentWords = [];
 let sessionQueue = [];
+let sessionLength = MAX_QUESTIONS;
+let isReviewMode = false;
 let mode = 'va-uk';
 let score = 0;
 let attempts = 0;
@@ -68,6 +70,7 @@ const restartBtn = $('restart-btn');
 const nextTopicBtn = $('next-topic-btn');
 const badgesBtn = $('badges-btn');
 const parentBtn = $('parent-btn');
+const reviewBtn = $('review-btn');
 const badgesModal = $('badges-modal');
 const badgesGridEl = $('badges-grid');
 const badgesCloseBtn = $('badges-close');
@@ -206,10 +209,17 @@ function renderImage(entry) {
   }
 }
 
+function computeReviewLength(wordCount) {
+  if (wordCount <= 0) return 0;
+  // Repeat each weak word about 3x, capped at the normal lesson length —
+  // reviewing 2 words shouldn't force a full 10-question grind.
+  return Math.min(MAX_QUESTIONS, Math.max(3, wordCount * 3));
+}
+
 function updateProgress() {
   scoreEl.textContent = `Результат: ${score} / ${attempts}`;
-  streakEl.textContent = `Питання ${currentQuestionNumber} / ${MAX_QUESTIONS}`;
-  progressFillEl.style.width = `${((currentQuestionNumber - 1) / MAX_QUESTIONS) * 100}%`;
+  streakEl.textContent = `Питання ${currentQuestionNumber} / ${sessionLength}`;
+  progressFillEl.style.width = `${((currentQuestionNumber - 1) / sessionLength) * 100}%`;
   xpValueEl.textContent = userState.totalXp;
   streakDaysEl.textContent = userState.streakDays;
 }
@@ -225,8 +235,12 @@ function renderQuestion() {
   feedbackEl.textContent = '';
   feedbackEl.className = 'feedback';
   questionAnswered = false;
-  const topicMeta = course.find(t => t.id === currentTopicId);
-  if (topicMeta) topicPillEl.textContent = `Тема: ${topicMeta.title_uk}`;
+  if (isReviewMode) {
+    topicPillEl.textContent = '🔁 Повторення складних слів';
+  } else {
+    const topicMeta = course.find(t => t.id === currentTopicId);
+    if (topicMeta) topicPillEl.textContent = `Тема: ${topicMeta.title_uk}`;
+  }
 
   const distractors = currentWords.filter(w => w.va !== entry.va);
   const optionsCount = Math.min(distractors.length, 3);
@@ -312,6 +326,7 @@ function renderTypeInput(entry) {
     if (isCorrect) {
       score += 1;
       streak += 1;
+      improveWeakWord(entry);
       input.classList.add('correct');
       feedbackEl.textContent = 'Чудово! Правильна відповідь 😊';
       feedbackEl.className = 'feedback good';
@@ -354,6 +369,7 @@ function renderOptions(options, correctValue, field, entry) {
       if (btn.dataset.value === correctValue) {
         score += 1;
         streak += 1;
+        improveWeakWord(entry);
         btn.classList.add('correct');
         feedbackEl.textContent = 'Чудово! Правильна відповідь 😊';
         feedbackEl.className = 'feedback good';
@@ -433,7 +449,7 @@ function speakCurrent() {
 }
 
 function goToNextQuestion() {
-  if (currentQuestionNumber >= MAX_QUESTIONS) return showLessonEnd();
+  if (currentQuestionNumber >= sessionLength) return showLessonEnd();
   currentQuestionNumber += 1;
   renderQuestion();
 }
@@ -458,16 +474,21 @@ function showLessonEnd() {
     endExtraEl.appendChild(badgeP);
   }
   renderTopicsList();
-  const nextTopic = getNextTopic(currentTopicId);
-  if (nextTopic) {
-    nextTopicBtn.style.display = 'inline-block';
-    nextTopicBtn.textContent = `➡️ Наступна: ${nextTopic.title_uk}`;
-  } else {
+  if (isReviewMode) {
     nextTopicBtn.style.display = 'none';
+  } else {
+    const nextTopic = getNextTopic(currentTopicId);
+    if (nextTopic) {
+      nextTopicBtn.style.display = 'inline-block';
+      nextTopicBtn.textContent = `➡️ Наступна: ${nextTopic.title_uk}`;
+    } else {
+      nextTopicBtn.style.display = 'none';
+    }
   }
 }
 
 function restartLesson() {
+  isReviewMode = false;
   score = 0;
   attempts = 0;
   streak = 0;
@@ -476,7 +497,8 @@ function restartLesson() {
   lessonEndEl.style.display = 'none';
   lessonAreaEl.style.display = 'block';
   currentWords = wordsByTopic[currentTopicId] || [];
-  sessionQueue = buildSessionQueue(currentWords, MAX_QUESTIONS);
+  sessionLength = MAX_QUESTIONS;
+  sessionQueue = buildSessionQueue(currentWords, sessionLength);
   renderQuestion();
 }
 
@@ -520,6 +542,16 @@ function checkAndAwardBadges() {
 }
 
 function handleLessonComplete() {
+  if (isReviewMode) {
+    // Cross-topic/topic review sessions aren't tied to a single topic's
+    // progress record — just reward XP and streak, no topic mastery changes.
+    userState.totalXp += score + 5;
+    updateStreakDays();
+    const newBadges = checkAndAwardBadges();
+    saveUserState();
+    updateProgress();
+    return newBadges;
+  }
   const topicProg = userState.progress[currentTopicId] || { completedLessons: 0, bestScore: 0, lastCompleted: null };
   topicProg.completedLessons += 1;
   if (score > topicProg.bestScore) topicProg.bestScore = score;
@@ -548,19 +580,54 @@ function updateStreakDays() {
   userState.lastActiveDate = today;
 }
 
+function cleanEntry(entry) {
+  return { va: entry.va, uk: entry.uk, phonetic: entry.phonetic, emoji: entry.emoji, audio: entry.audio };
+}
+
 function logMistake(entry) {
-  if (!userState.weakItems[currentTopicId]) userState.weakItems[currentTopicId] = {};
+  // entry._topicId is set on entries pulled into a cross-topic review session
+  // (see getAllWeakEntries); otherwise fall back to whatever topic is open.
+  const topicId = entry._topicId || currentTopicId;
+  if (!userState.weakItems[topicId]) userState.weakItems[topicId] = {};
   const key = entry.va;
-  const existing = userState.weakItems[currentTopicId][key] || { errors: 0, lastSeen: null, entry };
+  const existing = userState.weakItems[topicId][key] || { errors: 0, lastSeen: null, entry: cleanEntry(entry) };
   existing.errors += 1;
   existing.lastSeen = new Date().toISOString();
-  userState.weakItems[currentTopicId][key] = existing;
+  userState.weakItems[topicId][key] = existing;
+}
+
+function improveWeakWord(entry) {
+  // When a previously-weak word is answered correctly during a review session,
+  // let it "graduate" out of the weak list instead of hanging around forever.
+  const topicId = entry._topicId;
+  if (!topicId) return;
+  const topicWeak = userState.weakItems[topicId];
+  if (!topicWeak || !topicWeak[entry.va]) return;
+  topicWeak[entry.va].errors -= 1;
+  if (topicWeak[entry.va].errors <= 0) {
+    delete topicWeak[entry.va];
+    if (Object.keys(topicWeak).length === 0) delete userState.weakItems[topicId];
+  }
+}
+
+function getAllWeakEntries() {
+  const list = [];
+  Object.entries(userState.weakItems).forEach(([topicId, words]) => {
+    Object.values(words).forEach(item => {
+      list.push({ ...item.entry, _topicId: topicId, _errors: item.errors });
+    });
+  });
+  list.sort((a, b) => b._errors - a._errors);
+  return list;
 }
 
 function startWeakSession() {
   const topicWeak = userState.weakItems[currentTopicId] || {};
-  const entries = Object.values(topicWeak).sort((a, b) => b.errors - a.errors).map(item => item.entry);
+  const entries = Object.values(topicWeak)
+    .sort((a, b) => b.errors - a.errors)
+    .map(item => ({ ...item.entry, _topicId: currentTopicId, _errors: item.errors }));
   if (!entries.length) return feedbackEl.textContent = 'У цій темі немає складних слів! 🌟';
+  isReviewMode = true;
   currentWords = entries;
   score = 0;
   attempts = 0;
@@ -569,7 +636,28 @@ function startWeakSession() {
   questionAnswered = false;
   lessonEndEl.style.display = 'none';
   lessonAreaEl.style.display = 'block';
-  sessionQueue = buildSessionQueue(currentWords, MAX_QUESTIONS);
+  sessionLength = computeReviewLength(entries.length);
+  sessionQueue = buildSessionQueue(currentWords, sessionLength);
+  renderQuestion();
+}
+
+function startGlobalReview() {
+  const entries = getAllWeakEntries();
+  if (!entries.length) {
+    feedbackEl.textContent = 'Наразі немає складних слів для повторення! 🌟';
+    return;
+  }
+  isReviewMode = true;
+  currentWords = entries;
+  score = 0;
+  attempts = 0;
+  streak = 0;
+  currentQuestionNumber = 1;
+  questionAnswered = false;
+  lessonEndEl.style.display = 'none';
+  lessonAreaEl.style.display = 'block';
+  sessionLength = computeReviewLength(entries.length);
+  sessionQueue = buildSessionQueue(currentWords, sessionLength);
   renderQuestion();
 }
 
@@ -673,6 +761,8 @@ badgesCloseBtn.addEventListener('click', () => badgesModal.style.display = 'none
 badgesModal.addEventListener('click', (e) => {
   if (e.target === badgesModal) badgesModal.style.display = 'none';
 });
+
+reviewBtn.addEventListener('click', startGlobalReview);
 
 parentBtn.addEventListener('click', () => {
   renderParentDashboard();
