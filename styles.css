@@ -386,6 +386,47 @@ h1 {
   color: #fff !important;
 }
 
+.type-answer {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.type-input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  background: #0b1120;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.type-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+.type-input.correct {
+  background: var(--accent-green) !important;
+  border-color: var(--accent-green-hover) !important;
+  color: #022c22 !important;
+  font-weight: 700;
+}
+
+.type-input.wrong {
+  background: var(--accent-orange) !important;
+  border-color: #ea580c !important;
+  color: #fff !important;
+}
+
+.type-submit-btn {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
 .controls {
   display: flex;
   align-items: center;

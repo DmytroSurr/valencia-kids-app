@@ -238,14 +238,104 @@ function renderQuestion() {
     phoneticEl.textContent = entry.phonetic || '';
     renderOptions(shuffle(selectedOptions), entry.uk, 'uk', entry);
   } else {
-    questionLabelEl.textContent = 'Обери переклад валенсійською';
     questionTextEl.textContent = entry.uk;
     phoneticEl.textContent = '';
-    renderOptions(shuffle(selectedOptions), entry.va, 'va', entry);
+    const useTyping = canTypeThisWord(entry) && Math.random() < 0.3;
+    if (useTyping) {
+      questionLabelEl.textContent = 'Напиши переклад валенсійською';
+      renderTypeInput(entry);
+    } else {
+      questionLabelEl.textContent = 'Обери переклад валенсійською';
+      renderOptions(shuffle(selectedOptions), entry.va, 'va', entry);
+    }
   }
   renderImage(entry);
   updateProgress();
-  setTimeout(() => autoSpeak(entry), 300);
+  // Only auto-speak on render when the Valencian word is already the visible
+  // prompt (va-uk). In uk-va mode that would give away the answer, so instead
+  // we speak it right after the child answers (see renderOptions/renderTypeInput).
+  if (mode === 'va-uk') {
+    setTimeout(() => autoSpeak(entry), 300);
+  }
+}
+
+function canTypeThisWord(entry) {
+  // Only ask the child to type words from a topic they've already mastered
+  // (bestScore >= 9, same threshold as the "✅ засвоєна" label in the topic list),
+  // and skip words they've recently gotten wrong more than once.
+  const topicProg = userState.progress[currentTopicId];
+  if (!topicProg || topicProg.bestScore < 9) return false;
+  const topicWeak = userState.weakItems[currentTopicId];
+  const weakEntry = topicWeak && topicWeak[entry.va];
+  if (weakEntry && weakEntry.errors >= 2) return false;
+  return true;
+}
+
+function normalizeForCompare(str) {
+  return (str || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function renderTypeInput(entry) {
+  optionsEl.innerHTML = '';
+  const wrapper = document.createElement('div');
+  wrapper.className = 'type-answer';
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'type-input';
+  input.placeholder = 'Напиши валенсійською...';
+  input.autocomplete = 'off';
+  input.autocapitalize = 'off';
+  input.spellcheck = false;
+
+  const submitBtn = document.createElement('button');
+  submitBtn.className = 'option type-submit-btn';
+  submitBtn.textContent = 'Перевірити';
+
+  wrapper.append(input, submitBtn);
+  optionsEl.appendChild(wrapper);
+
+  const checkAnswer = () => {
+    if (questionAnswered) return;
+    questionAnswered = true;
+    attempts += 1;
+    const isCorrect = normalizeForCompare(input.value) === normalizeForCompare(entry.va);
+    input.disabled = true;
+    submitBtn.disabled = true;
+
+    if (isCorrect) {
+      score += 1;
+      streak += 1;
+      input.classList.add('correct');
+      feedbackEl.textContent = 'Чудово! Правильна відповідь 😊';
+      feedbackEl.className = 'feedback good';
+      playSound('correct');
+      if (navigator.vibrate) navigator.vibrate(40);
+    } else {
+      streak = 0;
+      input.classList.add('wrong');
+      feedbackEl.textContent = `Майже! Правильно: ${entry.va}`;
+      feedbackEl.className = 'feedback bad';
+      playSound('wrong');
+      if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+      logMistake(entry);
+    }
+    updateProgress();
+    saveUserState();
+    setTimeout(() => autoSpeak(entry), 300);
+  };
+
+  submitBtn.addEventListener('click', checkAnswer);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') checkAnswer();
+  });
+  setTimeout(() => input.focus(), 50);
 }
 
 function renderOptions(options, correctValue, field, entry) {
@@ -284,6 +374,9 @@ function renderOptions(options, correctValue, field, entry) {
       updateProgress();
       allButtons.forEach(b => b.disabled = true);
       saveUserState();
+      if (mode === 'uk-va') {
+        setTimeout(() => autoSpeak(entry), 300);
+      }
     });
     optionsEl.appendChild(btn);
   });
@@ -308,15 +401,15 @@ function playRecordedAudio(path) {
 function speakEntry(entry) {
   if (!entry) return false;
 
-  // Prefer a real recorded Valencian audio file over browser TTS when available.
-  if (mode === 'va-uk' && entry.audio) {
+  // Always pronounce the Valencian word/phrase, regardless of quiz direction —
+  // the point of the audio is hearing the language being learned.
+  if (entry.audio) {
     if (playRecordedAudio(entry.audio)) return true;
   }
 
   if (!('speechSynthesis' in window)) return false;
-  const textToSpeak = mode === 'va-uk' ? entry.va : entry.uk;
-  const utterance = new SpeechSynthesisUtterance(textToSpeak);
-  const langCode = mode === 'va-uk' ? 'ca-ES' : 'uk-UA';
+  const utterance = new SpeechSynthesisUtterance(entry.va);
+  const langCode = 'ca-ES';
   const voiceMatch = availableVoices.find(v => v.lang === langCode) ||
                      availableVoices.find(v => v.lang.startsWith('es')) ||
                      availableVoices[0];
