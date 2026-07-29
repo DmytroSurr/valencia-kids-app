@@ -1,0 +1,22 @@
+{
+  "name": "Valencià Trainer",
+  "short_name": "Valencià",
+  "description": "Тренувальний курс валенсійської мови для дітей",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://fav.farm/🎓",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://fav.farm/🎓",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
