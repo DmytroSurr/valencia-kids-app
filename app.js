@@ -71,6 +71,13 @@ const nextTopicBtn = $('next-topic-btn');
 const badgesBtn = $('badges-btn');
 const parentBtn = $('parent-btn');
 const reviewBtn = $('review-btn');
+const mascotEl = $('mascot');
+const memoryBtn = $('memory-btn');
+const memoryModal = $('memory-modal');
+const memoryCloseBtn = $('memory-close');
+const memoryGridEl = $('memory-grid');
+const memoryInfoEl = $('memory-info');
+const memoryResultEl = $('memory-result');
 const badgesModal = $('badges-modal');
 const badgesGridEl = $('badges-grid');
 const badgesCloseBtn = $('badges-close');
@@ -127,6 +134,14 @@ function playSound(type) {
       osc.stop(ctx.currentTime + 0.4);
     }
   } catch (e) {}
+}
+
+function triggerMascot(mood) {
+  if (!mascotEl) return;
+  mascotEl.classList.remove('happy', 'sad', 'excited');
+  // Force a reflow so the animation restarts even if the same mood fires twice in a row.
+  void mascotEl.offsetWidth;
+  mascotEl.classList.add(mood);
 }
 
 function shuffle(array) {
@@ -331,6 +346,7 @@ function renderTypeInput(entry) {
       feedbackEl.textContent = 'Чудово! Правильна відповідь 😊';
       feedbackEl.className = 'feedback good';
       playSound('correct');
+      triggerMascot('happy');
       if (navigator.vibrate) navigator.vibrate(40);
     } else {
       streak = 0;
@@ -338,6 +354,7 @@ function renderTypeInput(entry) {
       feedbackEl.textContent = `Майже! Правильно: ${entry.va}`;
       feedbackEl.className = 'feedback bad';
       playSound('wrong');
+      triggerMascot('sad');
       if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
       logMistake(entry);
     }
@@ -374,6 +391,7 @@ function renderOptions(options, correctValue, field, entry) {
         feedbackEl.textContent = 'Чудово! Правильна відповідь 😊';
         feedbackEl.className = 'feedback good';
         playSound('correct');
+        triggerMascot('happy');
         if (navigator.vibrate) navigator.vibrate(40);
       } else {
         streak = 0;
@@ -384,6 +402,7 @@ function renderOptions(options, correctValue, field, entry) {
         feedbackEl.textContent = `Майже! Правильно: ${pair}`;
         feedbackEl.className = 'feedback bad';
         playSound('wrong');
+        triggerMascot('sad');
         if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
         logMistake(entry);
       }
@@ -468,6 +487,7 @@ function showLessonEnd() {
   endExtraEl.appendChild(ratioP);
   if (newBadges.length) {
     playSound('badge');
+    triggerMascot('excited');
     const badgeP = document.createElement('p');
     badgeP.className = 'new-badge-line';
     badgeP.textContent = `Нова нагорода: ${newBadges.map(b => `${b.icon} ${b.title}`).join(', ')}`;
@@ -726,6 +746,121 @@ function renderParentDashboard() {
   }
 }
 
+const MEMORY_PAIR_COUNT = 6;
+let memoryCards = [];
+let memoryFlipped = [];
+let memoryMatchedCount = 0;
+let memoryMoves = 0;
+let memoryLock = false;
+
+function getMemoryWordPool() {
+  const attemptedTopicIds = Object.keys(userState.progress);
+  let pool = [];
+  attemptedTopicIds.forEach(topicId => {
+    (wordsByTopic[topicId] || []).forEach(w => pool.push(w));
+  });
+  if (pool.length < MEMORY_PAIR_COUNT) {
+    // Not enough attempted topics yet — fall back to the whole course so the
+    // game still works for a brand-new learner.
+    pool = [];
+    Object.values(wordsByTopic).forEach(words => words.forEach(w => pool.push(w)));
+  }
+  const seen = new Set();
+  return pool.filter(w => {
+    if (seen.has(w.va)) return false;
+    seen.add(w.va);
+    return true;
+  });
+}
+
+function startMemoryGame() {
+  const pool = getMemoryWordPool();
+  const picked = shuffle(pool).slice(0, Math.min(MEMORY_PAIR_COUNT, pool.length));
+  const cards = [];
+  picked.forEach((entry, i) => {
+    cards.push({ id: `${i}-va`, pairKey: i, text: entry.va, matched: false });
+    cards.push({ id: `${i}-uk`, pairKey: i, text: entry.uk, matched: false });
+  });
+  memoryCards = shuffle(cards);
+  memoryFlipped = [];
+  memoryMatchedCount = 0;
+  memoryMoves = 0;
+  memoryLock = false;
+  memoryResultEl.textContent = '';
+  renderMemoryGrid();
+  updateMemoryInfo();
+}
+
+function updateMemoryInfo() {
+  memoryInfoEl.textContent = `Спроб: ${memoryMoves} · Знайдено пар: ${memoryMatchedCount} / ${MEMORY_PAIR_COUNT}`;
+}
+
+function renderMemoryGrid() {
+  memoryGridEl.innerHTML = '';
+  memoryCards.forEach(card => {
+    const btn = document.createElement('button');
+    btn.className = 'memory-card';
+    btn.textContent = '❓';
+    btn.addEventListener('click', () => onMemoryCardClick(btn, card));
+    memoryGridEl.appendChild(btn);
+  });
+}
+
+function onMemoryCardClick(cardEl, card) {
+  if (memoryLock || card.matched || memoryFlipped.some(f => f.card.id === card.id)) return;
+
+  cardEl.textContent = card.text;
+  cardEl.classList.add('flipped');
+  memoryFlipped.push({ cardEl, card });
+
+  if (memoryFlipped.length < 2) return;
+
+  memoryMoves += 1;
+  memoryLock = true;
+  const [first, second] = memoryFlipped;
+
+  if (first.card.pairKey === second.card.pairKey) {
+    first.card.matched = true;
+    second.card.matched = true;
+    first.cardEl.classList.remove('flipped');
+    second.cardEl.classList.remove('flipped');
+    first.cardEl.classList.add('matched');
+    second.cardEl.classList.add('matched');
+    first.cardEl.disabled = true;
+    second.cardEl.disabled = true;
+    memoryMatchedCount += 1;
+    playSound('correct');
+    triggerMascot('happy');
+    memoryFlipped = [];
+    memoryLock = false;
+    updateMemoryInfo();
+    if (memoryMatchedCount === MEMORY_PAIR_COUNT) {
+      onMemoryGameComplete();
+    }
+  } else {
+    playSound('wrong');
+    triggerMascot('sad');
+    updateMemoryInfo();
+    setTimeout(() => {
+      first.cardEl.textContent = '❓';
+      second.cardEl.textContent = '❓';
+      first.cardEl.classList.remove('flipped');
+      second.cardEl.classList.remove('flipped');
+      memoryFlipped = [];
+      memoryLock = false;
+    }, 900);
+  }
+}
+
+function onMemoryGameComplete() {
+  memoryResultEl.textContent = `Чудово! Усі пари знайдено за ${memoryMoves} спроб! 🎉`;
+  userState.totalXp += 10;
+  saveUserState();
+  updateProgress();
+  playSound('badge');
+  triggerMascot('excited');
+}
+
 speakBtn.addEventListener('click', speakCurrent);
 nextBtn.addEventListener('click', () => {
   if (!questionAnswered) return feedbackEl.textContent = 'Спочатку оберіть відповідь 😊';
@@ -763,6 +898,15 @@ badgesModal.addEventListener('click', (e) => {
 });
 
 reviewBtn.addEventListener('click', startGlobalReview);
+
+memoryBtn.addEventListener('click', () => {
+  startMemoryGame();
+  memoryModal.style.display = 'flex';
+});
+memoryCloseBtn.addEventListener('click', () => memoryModal.style.display = 'none');
+memoryModal.addEventListener('click', (e) => {
+  if (e.target === memoryModal) memoryModal.style.display = 'none';
+});
 
 parentBtn.addEventListener('click', () => {
   renderParentDashboard();

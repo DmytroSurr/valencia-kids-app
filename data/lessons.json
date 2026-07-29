@@ -125,6 +125,244 @@
       "level": 2,
       "type": "phrases",
       "title_uk": "Фрази: Вподобання"
+    },
+    {
+      "id": "school1",
+      "order": 19,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Школа - речі"
+    },
+    {
+      "id": "school2",
+      "order": 20,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Школа - люди та місця"
+    },
+    {
+      "id": "nature1",
+      "order": 21,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Природа - рослини"
+    },
+    {
+      "id": "nature2",
+      "order": 22,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Природа - явища"
+    },
+    {
+      "id": "transport1",
+      "order": 23,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Транспорт"
+    },
+    {
+      "id": "professions1",
+      "order": 24,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Професії"
+    },
+    {
+      "id": "numbers1",
+      "order": 25,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Числа 1-10"
+    },
+    {
+      "id": "numbers2",
+      "order": 26,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Числа (десятки)"
+    },
+    {
+      "id": "time1",
+      "order": 27,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Час - пори дня"
+    },
+    {
+      "id": "time2",
+      "order": 28,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Час - пори року"
+    },
+    {
+      "id": "kitchen1",
+      "order": 29,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Кухонне приладдя"
+    },
+    {
+      "id": "actions1",
+      "order": 30,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Дієслова дії"
+    },
+    {
+      "id": "adjectives1",
+      "order": 31,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Прикметники - протилежності"
+    },
+    {
+      "id": "body2",
+      "order": 32,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Тіло (додатково)"
+    },
+    {
+      "id": "emotions1",
+      "order": 33,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Емоції"
+    },
+    {
+      "id": "furniture1",
+      "order": 34,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Меблі"
+    },
+    {
+      "id": "sports1",
+      "order": 35,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Спорт"
+    },
+    {
+      "id": "music1",
+      "order": 36,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Музика та інструменти"
+    },
+    {
+      "id": "food_sweets1",
+      "order": 37,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Солодощі"
+    },
+    {
+      "id": "animals4",
+      "order": 38,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Комахи"
+    },
+    {
+      "id": "house_extra1",
+      "order": 39,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Дім - подвір'я"
+    },
+    {
+      "id": "toys1",
+      "order": 40,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Іграшки"
+    },
+    {
+      "id": "weather1",
+      "order": 41,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Погода"
+    },
+    {
+      "id": "phrases_greetings1",
+      "order": 42,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: Привітання"
+    },
+    {
+      "id": "phrases_parc1",
+      "order": 43,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: У парку"
+    },
+    {
+      "id": "phrases_botiga1",
+      "order": 44,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: У магазині"
+    },
+    {
+      "id": "phrases_aniversari1",
+      "order": 45,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: День народження"
+    },
+    {
+      "id": "phrases_bedtime1",
+      "order": 46,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: Перед сном"
+    },
+    {
+      "id": "phrases_permission1",
+      "order": 47,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: Прохання дозволу"
+    },
+    {
+      "id": "phrases_feelings1",
+      "order": 48,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Фрази: Почуття"
+    },
+    {
+      "id": "grammar_ser1",
+      "order": 49,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Дієслово \"бути\" (ser)"
+    },
+    {
+      "id": "grammar_tenir1",
+      "order": 50,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Дієслово \"мати\" (tenir)"
+    },
+    {
+      "id": "grammar_plural1",
+      "order": 51,
+      "level": 1,
+      "type": "vocabulary",
+      "title_uk": "Множина"
+    },
+    {
+      "id": "grammar_prepositions1",
+      "order": 52,
+      "level": 2,
+      "type": "phrases",
+      "title_uk": "Прийменники (у реченні)"
     }
   ],
   "lessons_data": {
@@ -1056,6 +1294,1718 @@
         "uk": "Я більше люблю море",
         "phonetic": "[префере́йшо ел мар]",
         "emoji": "🌊"
+      }
+    ],
+    "school1": [
+      {
+        "va": "llibre",
+        "uk": "книга",
+        "phonetic": "[льї́бре]",
+        "emoji": "📕"
+      },
+      {
+        "va": "llapis",
+        "uk": "олівець",
+        "phonetic": "[льа́піс]",
+        "emoji": "✏️"
+      },
+      {
+        "va": "goma",
+        "uk": "гумка",
+        "phonetic": "[го́ма]",
+        "emoji": "⬜"
+      },
+      {
+        "va": "motxilla",
+        "uk": "рюкзак",
+        "phonetic": "[мотчі́лья]",
+        "emoji": "🎒"
+      },
+      {
+        "va": "tisores",
+        "uk": "ножиці",
+        "phonetic": "[тізо́рес]",
+        "emoji": "✂️"
+      },
+      {
+        "va": "pissarra",
+        "uk": "дошка",
+        "phonetic": "[пісса́рра]",
+        "emoji": "📝"
+      },
+      {
+        "va": "cadira",
+        "uk": "стілець",
+        "phonetic": "[кадіра]",
+        "emoji": "🪑"
+      },
+      {
+        "va": "taula",
+        "uk": "стіл",
+        "phonetic": "[та́ула]",
+        "emoji": "🟫"
+      },
+      {
+        "va": "quadern",
+        "uk": "зошит",
+        "phonetic": "[куаде́рн]",
+        "emoji": "📓"
+      }
+    ],
+    "school2": [
+      {
+        "va": "mestre",
+        "uk": "вчитель",
+        "phonetic": "[ме́стре]",
+        "emoji": "🧑‍🏫"
+      },
+      {
+        "va": "mestra",
+        "uk": "вчителька",
+        "phonetic": "[ме́стра]",
+        "emoji": "👩‍🏫"
+      },
+      {
+        "va": "alumne",
+        "uk": "учень",
+        "phonetic": "[алу́мне]",
+        "emoji": "🧑‍🎓"
+      },
+      {
+        "va": "aula",
+        "uk": "клас (кімната)",
+        "phonetic": "[а́ула]",
+        "emoji": "🏫"
+      },
+      {
+        "va": "pati",
+        "uk": "шкільне подвір'я",
+        "phonetic": "[па́ті]",
+        "emoji": "🏃"
+      },
+      {
+        "va": "biblioteca",
+        "uk": "бібліотека",
+        "phonetic": "[бібліоте́ка]",
+        "emoji": "📚"
+      },
+      {
+        "va": "director",
+        "uk": "директор",
+        "phonetic": "[діректо́р]",
+        "emoji": "🧑‍💼"
+      },
+      {
+        "va": "deures",
+        "uk": "домашнє завдання",
+        "phonetic": "[де́урес]",
+        "emoji": "📝"
+      }
+    ],
+    "nature1": [
+      {
+        "va": "arbre",
+        "uk": "дерево",
+        "phonetic": "[а́рбре]",
+        "emoji": "🌳"
+      },
+      {
+        "va": "flor",
+        "uk": "квітка",
+        "phonetic": "[флор]",
+        "emoji": "🌸"
+      },
+      {
+        "va": "fulla",
+        "uk": "листок",
+        "phonetic": "[фу́лья]",
+        "emoji": "🍃"
+      },
+      {
+        "va": "herba",
+        "uk": "трава",
+        "phonetic": "[е́рба]",
+        "emoji": "🌿"
+      },
+      {
+        "va": "fruit",
+        "uk": "плід (з дерева)",
+        "phonetic": "[фру́іт]",
+        "emoji": "🍒"
+      },
+      {
+        "va": "bosc",
+        "uk": "ліс",
+        "phonetic": "[боск]",
+        "emoji": "🌲"
+      },
+      {
+        "va": "muntanya",
+        "uk": "гора",
+        "phonetic": "[мунта́нья]",
+        "emoji": "⛰️"
+      },
+      {
+        "va": "riu",
+        "uk": "річка",
+        "phonetic": "[рі́у]",
+        "emoji": "🏞️"
+      }
+    ],
+    "nature2": [
+      {
+        "va": "sol",
+        "uk": "сонце",
+        "phonetic": "[сол]",
+        "emoji": "☀️"
+      },
+      {
+        "va": "lluna",
+        "uk": "місяць (небесний)",
+        "phonetic": "[лью́на]",
+        "emoji": "🌙"
+      },
+      {
+        "va": "estrella",
+        "uk": "зірка",
+        "phonetic": "[естре́лья]",
+        "emoji": "⭐"
+      },
+      {
+        "va": "núvol",
+        "uk": "хмара",
+        "phonetic": "[ну́вол]",
+        "emoji": "☁️"
+      },
+      {
+        "va": "pluja",
+        "uk": "дощ",
+        "phonetic": "[плу́жа]",
+        "emoji": "🌧️"
+      },
+      {
+        "va": "neu",
+        "uk": "сніг",
+        "phonetic": "[неу]",
+        "emoji": "❄️"
+      },
+      {
+        "va": "vent",
+        "uk": "вітер",
+        "phonetic": "[вент]",
+        "emoji": "💨"
+      },
+      {
+        "va": "arc de Sant Martí",
+        "uk": "веселка",
+        "phonetic": "[арк де сант марті]",
+        "emoji": "🌈"
+      }
+    ],
+    "transport1": [
+      {
+        "va": "cotxe",
+        "uk": "машина",
+        "phonetic": "[ко́тче]",
+        "emoji": "🚗"
+      },
+      {
+        "va": "autobús",
+        "uk": "автобус",
+        "phonetic": "[аутобу́с]",
+        "emoji": "🚌"
+      },
+      {
+        "va": "tren",
+        "uk": "потяг",
+        "phonetic": "[трен]",
+        "emoji": "🚆"
+      },
+      {
+        "va": "bicicleta",
+        "uk": "велосипед",
+        "phonetic": "[бісікле́та]",
+        "emoji": "🚲"
+      },
+      {
+        "va": "avió",
+        "uk": "літак",
+        "phonetic": "[авіо́]",
+        "emoji": "✈️"
+      },
+      {
+        "va": "vaixell",
+        "uk": "корабель",
+        "phonetic": "[вайше́ль]",
+        "emoji": "🚢"
+      },
+      {
+        "va": "moto",
+        "uk": "мотоцикл",
+        "phonetic": "[мо́то]",
+        "emoji": "🏍️"
+      },
+      {
+        "va": "patinet",
+        "uk": "самокат",
+        "phonetic": "[патіне́т]",
+        "emoji": "🛴"
+      }
+    ],
+    "professions1": [
+      {
+        "va": "metge",
+        "uk": "лікар",
+        "phonetic": "[ме́тже]",
+        "emoji": "👨‍⚕️"
+      },
+      {
+        "va": "bomber",
+        "uk": "пожежник",
+        "phonetic": "[бомбе́р]",
+        "emoji": "👨‍🚒"
+      },
+      {
+        "va": "policia",
+        "uk": "поліцейський",
+        "phonetic": "[полісі́я]",
+        "emoji": "👮"
+      },
+      {
+        "va": "cuiner",
+        "uk": "кухар",
+        "phonetic": "[куіне́р]",
+        "emoji": "👨‍🍳"
+      },
+      {
+        "va": "pagès",
+        "uk": "фермер",
+        "phonetic": "[паже́с]",
+        "emoji": "👨‍🌾"
+      },
+      {
+        "va": "pilot",
+        "uk": "пілот",
+        "phonetic": "[піло́т]",
+        "emoji": "👨‍✈️"
+      },
+      {
+        "va": "cantant",
+        "uk": "співак",
+        "phonetic": "[канта́нт]",
+        "emoji": "🎤"
+      },
+      {
+        "va": "veterinari",
+        "uk": "ветеринар",
+        "phonetic": "[ветеріна́рі]",
+        "emoji": "🐾"
+      }
+    ],
+    "numbers1": [
+      {
+        "va": "u",
+        "uk": "один",
+        "phonetic": "[у]",
+        "emoji": "1️⃣"
+      },
+      {
+        "va": "dos",
+        "uk": "два",
+        "phonetic": "[дос]",
+        "emoji": "2️⃣"
+      },
+      {
+        "va": "tres",
+        "uk": "три",
+        "phonetic": "[трес]",
+        "emoji": "3️⃣"
+      },
+      {
+        "va": "quatre",
+        "uk": "чотири",
+        "phonetic": "[ку́атре]",
+        "emoji": "4️⃣"
+      },
+      {
+        "va": "cinc",
+        "uk": "п'ять",
+        "phonetic": "[сінк]",
+        "emoji": "5️⃣"
+      },
+      {
+        "va": "sis",
+        "uk": "шість",
+        "phonetic": "[сіс]",
+        "emoji": "6️⃣"
+      },
+      {
+        "va": "set",
+        "uk": "сім",
+        "phonetic": "[сет]",
+        "emoji": "7️⃣"
+      },
+      {
+        "va": "huit",
+        "uk": "вісім",
+        "phonetic": "[уіт]",
+        "emoji": "8️⃣"
+      },
+      {
+        "va": "nou",
+        "uk": "дев'ять",
+        "phonetic": "[ноу]",
+        "emoji": "9️⃣"
+      },
+      {
+        "va": "deu",
+        "uk": "десять",
+        "phonetic": "[деу]",
+        "emoji": "🔟"
+      }
+    ],
+    "numbers2": [
+      {
+        "va": "vint",
+        "uk": "двадцять",
+        "phonetic": "[він]",
+        "emoji": "2️⃣0️⃣"
+      },
+      {
+        "va": "trenta",
+        "uk": "тридцять",
+        "phonetic": "[тре́нта]",
+        "emoji": "3️⃣0️⃣"
+      },
+      {
+        "va": "quaranta",
+        "uk": "сорок",
+        "phonetic": "[куара́нта]",
+        "emoji": "4️⃣0️⃣"
+      },
+      {
+        "va": "cinquanta",
+        "uk": "п'ятдесят",
+        "phonetic": "[сінкуа́нта]",
+        "emoji": "5️⃣0️⃣"
+      },
+      {
+        "va": "seixanta",
+        "uk": "шістдесят",
+        "phonetic": "[сейша́нта]",
+        "emoji": "6️⃣0️⃣"
+      },
+      {
+        "va": "setanta",
+        "uk": "сімдесят",
+        "phonetic": "[сета́нта]",
+        "emoji": "7️⃣0️⃣"
+      },
+      {
+        "va": "huitanta",
+        "uk": "вісімдесят",
+        "phonetic": "[уіта́нта]",
+        "emoji": "8️⃣0️⃣"
+      },
+      {
+        "va": "noranta",
+        "uk": "дев'яносто",
+        "phonetic": "[нора́нта]",
+        "emoji": "9️⃣0️⃣"
+      },
+      {
+        "va": "cent",
+        "uk": "сто",
+        "phonetic": "[сент]",
+        "emoji": "💯"
+      }
+    ],
+    "time1": [
+      {
+        "va": "matí",
+        "uk": "ранок",
+        "phonetic": "[маті]",
+        "emoji": "🌅"
+      },
+      {
+        "va": "migdia",
+        "uk": "полудень",
+        "phonetic": "[мігді́а]",
+        "emoji": "🌞"
+      },
+      {
+        "va": "vesprada",
+        "uk": "вечір",
+        "phonetic": "[веспра́да]",
+        "emoji": "🌇"
+      },
+      {
+        "va": "nit",
+        "uk": "ніч",
+        "phonetic": "[ніт]",
+        "emoji": "🌃"
+      },
+      {
+        "va": "avui",
+        "uk": "сьогодні",
+        "phonetic": "[аву́і]",
+        "emoji": "📅"
+      },
+      {
+        "va": "demà",
+        "uk": "завтра",
+        "phonetic": "[дема́]",
+        "emoji": "➡️"
+      },
+      {
+        "va": "ahir",
+        "uk": "вчора",
+        "phonetic": "[аі́р]",
+        "emoji": "⬅️"
+      }
+    ],
+    "time2": [
+      {
+        "va": "primavera",
+        "uk": "весна",
+        "phonetic": "[прімаве́ра]",
+        "emoji": "🌱"
+      },
+      {
+        "va": "estiu",
+        "uk": "літо",
+        "phonetic": "[есті́у]",
+        "emoji": "☀️"
+      },
+      {
+        "va": "tardor",
+        "uk": "осінь",
+        "phonetic": "[тардо́р]",
+        "emoji": "🍂"
+      },
+      {
+        "va": "hivern",
+        "uk": "зима",
+        "phonetic": "[івер́н]",
+        "emoji": "❄️"
+      }
+    ],
+    "kitchen1": [
+      {
+        "va": "forquilla",
+        "uk": "виделка",
+        "phonetic": "[форкі́лья]",
+        "emoji": "🍴"
+      },
+      {
+        "va": "ganivet",
+        "uk": "ніж",
+        "phonetic": "[ганіве́т]",
+        "emoji": "🔪"
+      },
+      {
+        "va": "cullera",
+        "uk": "ложка",
+        "phonetic": "[кулье́ра]",
+        "emoji": "🥄"
+      },
+      {
+        "va": "plat",
+        "uk": "тарілка",
+        "phonetic": "[плат]",
+        "emoji": "🍽️"
+      },
+      {
+        "va": "got",
+        "uk": "склянка",
+        "phonetic": "[гот]",
+        "emoji": "🥛"
+      },
+      {
+        "va": "olla",
+        "uk": "каструля",
+        "phonetic": "[о́лья]",
+        "emoji": "🍲"
+      },
+      {
+        "va": "paella",
+        "uk": "сковорідка",
+        "phonetic": "[паэ́лья]",
+        "emoji": "🍳"
+      },
+      {
+        "va": "tovalló",
+        "uk": "серветка",
+        "phonetic": "[товалльо́]",
+        "emoji": "🧻"
+      }
+    ],
+    "actions1": [
+      {
+        "va": "menjar",
+        "uk": "їсти",
+        "phonetic": "[менжа́р]",
+        "emoji": "🍽️"
+      },
+      {
+        "va": "beure",
+        "uk": "пити",
+        "phonetic": "[бе́уре]",
+        "emoji": "🥤"
+      },
+      {
+        "va": "dormir",
+        "uk": "спати",
+        "phonetic": "[дормі́р]",
+        "emoji": "😴"
+      },
+      {
+        "va": "jugar",
+        "uk": "гратися",
+        "phonetic": "[жуга́р]",
+        "emoji": "🎲"
+      },
+      {
+        "va": "córrer",
+        "uk": "бігти",
+        "phonetic": "[ко́ррер]",
+        "emoji": "🏃"
+      },
+      {
+        "va": "saltar",
+        "uk": "стрибати",
+        "phonetic": "[салта́р]",
+        "emoji": "🤸"
+      },
+      {
+        "va": "llegir",
+        "uk": "читати",
+        "phonetic": "[льєжі́р]",
+        "emoji": "📖"
+      },
+      {
+        "va": "escriure",
+        "uk": "писати",
+        "phonetic": "[ескрі́уре]",
+        "emoji": "✏️"
+      },
+      {
+        "va": "cantar",
+        "uk": "співати",
+        "phonetic": "[канта́р]",
+        "emoji": "🎤"
+      },
+      {
+        "va": "ballar",
+        "uk": "танцювати",
+        "phonetic": "[бальа́р]",
+        "emoji": "💃"
+      }
+    ],
+    "adjectives1": [
+      {
+        "va": "gran",
+        "uk": "великий",
+        "phonetic": "[гран]",
+        "emoji": "🐘"
+      },
+      {
+        "va": "xicotet",
+        "uk": "маленький",
+        "phonetic": "[шікоте́т]",
+        "emoji": "🐜"
+      },
+      {
+        "va": "alt",
+        "uk": "високий",
+        "phonetic": "[алт]",
+        "emoji": "📏"
+      },
+      {
+        "va": "baix",
+        "uk": "низький",
+        "phonetic": "[байш]",
+        "emoji": "⬇️"
+      },
+      {
+        "va": "calent",
+        "uk": "гарячий",
+        "phonetic": "[кале́нт]",
+        "emoji": "🔥"
+      },
+      {
+        "va": "fred",
+        "uk": "холодний",
+        "phonetic": "[фрет]",
+        "emoji": "🧊"
+      },
+      {
+        "va": "net",
+        "uk": "чистий",
+        "phonetic": "[нет]",
+        "emoji": "🧼"
+      },
+      {
+        "va": "brut",
+        "uk": "брудний",
+        "phonetic": "[брут]",
+        "emoji": "🟤"
+      },
+      {
+        "va": "ràpid",
+        "uk": "швидкий",
+        "phonetic": "[ра́піт]",
+        "emoji": "⚡"
+      },
+      {
+        "va": "lent",
+        "uk": "повільний",
+        "phonetic": "[лент]",
+        "emoji": "🐌"
+      }
+    ],
+    "body2": [
+      {
+        "va": "coll",
+        "uk": "шия",
+        "phonetic": "[коль]",
+        "emoji": "🧣"
+      },
+      {
+        "va": "esquena",
+        "uk": "спина",
+        "phonetic": "[еске́на]",
+        "emoji": "🎒"
+      },
+      {
+        "va": "genoll",
+        "uk": "коліно",
+        "phonetic": "[женоль]",
+        "emoji": "🦿"
+      },
+      {
+        "va": "dit",
+        "uk": "палець",
+        "phonetic": "[діт]",
+        "emoji": "👆"
+      },
+      {
+        "va": "panxa",
+        "uk": "живіт",
+        "phonetic": "[па́нша]",
+        "emoji": "🎈"
+      },
+      {
+        "va": "braç",
+        "uk": "рука (від плеча)",
+        "phonetic": "[брас]",
+        "emoji": "💪"
+      },
+      {
+        "va": "cama",
+        "uk": "нога (ціла)",
+        "phonetic": "[ка́ма]",
+        "emoji": "🦵"
+      },
+      {
+        "va": "ungla",
+        "uk": "ніготь",
+        "phonetic": "[у́нгла]",
+        "emoji": "💅"
+      }
+    ],
+    "emotions1": [
+      {
+        "va": "content",
+        "uk": "радісний",
+        "phonetic": "[конте́нт]",
+        "emoji": "😄"
+      },
+      {
+        "va": "trist",
+        "uk": "сумний",
+        "phonetic": "[тріст]",
+        "emoji": "😢"
+      },
+      {
+        "va": "enfadat",
+        "uk": "злий (сердитий)",
+        "phonetic": "[енфада́т]",
+        "emoji": "😠"
+      },
+      {
+        "va": "cansat",
+        "uk": "втомлений",
+        "phonetic": "[канса́т]",
+        "emoji": "😴"
+      },
+      {
+        "va": "sorprès",
+        "uk": "здивований",
+        "phonetic": "[сорпре́с]",
+        "emoji": "😮"
+      },
+      {
+        "va": "té por",
+        "uk": "наляканий",
+        "phonetic": "[те пор]",
+        "emoji": "😨"
+      },
+      {
+        "va": "avorrit",
+        "uk": "нудьгуючий",
+        "phonetic": "[аворрі́т]",
+        "emoji": "😑"
+      },
+      {
+        "va": "nerviós",
+        "uk": "нервовий",
+        "phonetic": "[нервіо́с]",
+        "emoji": "😬"
+      }
+    ],
+    "furniture1": [
+      {
+        "va": "llit",
+        "uk": "ліжко",
+        "phonetic": "[льїт]",
+        "emoji": "🛏️"
+      },
+      {
+        "va": "armari",
+        "uk": "шафа",
+        "phonetic": "[арма́рі]",
+        "emoji": "🚪"
+      },
+      {
+        "va": "prestatge",
+        "uk": "полиця",
+        "phonetic": "[преста́тже]",
+        "emoji": "📚"
+      },
+      {
+        "va": "catifa",
+        "uk": "килим",
+        "phonetic": "[каті́фа]",
+        "emoji": "🟫"
+      },
+      {
+        "va": "coixí",
+        "uk": "подушка",
+        "phonetic": "[койші́]",
+        "emoji": "🛌"
+      },
+      {
+        "va": "mirall",
+        "uk": "дзеркало",
+        "phonetic": "[міра́ль]",
+        "emoji": "🪞"
+      },
+      {
+        "va": "sofà",
+        "uk": "диван",
+        "phonetic": "[софа́]",
+        "emoji": "🛋️"
+      },
+      {
+        "va": "calaix",
+        "uk": "шухляда",
+        "phonetic": "[кала́йш]",
+        "emoji": "🗄️"
+      }
+    ],
+    "sports1": [
+      {
+        "va": "futbol",
+        "uk": "футбол",
+        "phonetic": "[футбо́л]",
+        "emoji": "⚽"
+      },
+      {
+        "va": "bàsquet",
+        "uk": "баскетбол",
+        "phonetic": "[ба́скет]",
+        "emoji": "🏀"
+      },
+      {
+        "va": "natació",
+        "uk": "плавання",
+        "phonetic": "[натасіо́]",
+        "emoji": "🏊"
+      },
+      {
+        "va": "tennis",
+        "uk": "теніс",
+        "phonetic": "[те́ніс]",
+        "emoji": "🎾"
+      },
+      {
+        "va": "ciclisme",
+        "uk": "велоспорт",
+        "phonetic": "[сіклі́сме]",
+        "emoji": "🚴"
+      },
+      {
+        "va": "pilota",
+        "uk": "м'яч",
+        "phonetic": "[піло́та]",
+        "emoji": "🏐"
+      },
+      {
+        "va": "patinatge",
+        "uk": "катання на ковзанах",
+        "phonetic": "[патіна́тже]",
+        "emoji": "⛸️"
+      },
+      {
+        "va": "gimnàstica",
+        "uk": "гімнастика",
+        "phonetic": "[жимна́стіка]",
+        "emoji": "🤸"
+      }
+    ],
+    "music1": [
+      {
+        "va": "guitarra",
+        "uk": "гітара",
+        "phonetic": "[гіта́рра]",
+        "emoji": "🎸"
+      },
+      {
+        "va": "piano",
+        "uk": "піаніно",
+        "phonetic": "[піа́но]",
+        "emoji": "🎹"
+      },
+      {
+        "va": "tambor",
+        "uk": "барабан",
+        "phonetic": "[тамбо́р]",
+        "emoji": "🥁"
+      },
+      {
+        "va": "flauta",
+        "uk": "флейта",
+        "phonetic": "[фла́ута]",
+        "emoji": "🎶"
+      },
+      {
+        "va": "violí",
+        "uk": "скрипка",
+        "phonetic": "[віолі́]",
+        "emoji": "🎻"
+      },
+      {
+        "va": "cançó",
+        "uk": "пісня",
+        "phonetic": "[кансо́]",
+        "emoji": "🎵"
+      },
+      {
+        "va": "micròfon",
+        "uk": "мікрофон",
+        "phonetic": "[мікро́фон]",
+        "emoji": "🎤"
+      },
+      {
+        "va": "ritme",
+        "uk": "ритм",
+        "phonetic": "[рі́тме]",
+        "emoji": "🕺"
+      }
+    ],
+    "food_sweets1": [
+      {
+        "va": "gelat",
+        "uk": "морозиво",
+        "phonetic": "[жела́т]",
+        "emoji": "🍦"
+      },
+      {
+        "va": "xocolata",
+        "uk": "шоколад",
+        "phonetic": "[шоколата]",
+        "emoji": "🍫"
+      },
+      {
+        "va": "caramel",
+        "uk": "цукерка",
+        "phonetic": "[караме́ль]",
+        "emoji": "🍬"
+      },
+      {
+        "va": "galeta",
+        "uk": "печиво",
+        "phonetic": "[гале́та]",
+        "emoji": "🍪"
+      },
+      {
+        "va": "pastís",
+        "uk": "торт",
+        "phonetic": "[пасті́с]",
+        "emoji": "🍰"
+      },
+      {
+        "va": "flam",
+        "uk": "флан (десерт)",
+        "phonetic": "[флам]",
+        "emoji": "🍮"
+      },
+      {
+        "va": "mel",
+        "uk": "мед",
+        "phonetic": "[мел]",
+        "emoji": "🍯"
+      },
+      {
+        "va": "sucre",
+        "uk": "цукор",
+        "phonetic": "[су́кре]",
+        "emoji": "🧂"
+      }
+    ],
+    "animals4": [
+      {
+        "va": "abella",
+        "uk": "бджола",
+        "phonetic": "[абе́лья]",
+        "emoji": "🐝"
+      },
+      {
+        "va": "papallona",
+        "uk": "метелик",
+        "phonetic": "[папальйо́на]",
+        "emoji": "🦋"
+      },
+      {
+        "va": "aranya",
+        "uk": "павук",
+        "phonetic": "[ара́нья]",
+        "emoji": "🕷️"
+      },
+      {
+        "va": "formiga",
+        "uk": "мурашка",
+        "phonetic": "[форміга]",
+        "emoji": "🐜"
+      },
+      {
+        "va": "musca",
+        "uk": "муха",
+        "phonetic": "[му́ска]",
+        "emoji": "🪰"
+      },
+      {
+        "va": "cuc",
+        "uk": "черв'ячок",
+        "phonetic": "[кук]",
+        "emoji": "🐛"
+      },
+      {
+        "va": "grill",
+        "uk": "цвіркун",
+        "phonetic": "[гріль]",
+        "emoji": "🦗"
+      },
+      {
+        "va": "escarabat",
+        "uk": "жук",
+        "phonetic": "[ескараба́т]",
+        "emoji": "🪲"
+      }
+    ],
+    "house_extra1": [
+      {
+        "va": "jardí",
+        "uk": "сад",
+        "phonetic": "[жарді]",
+        "emoji": "🌷"
+      },
+      {
+        "va": "garatge",
+        "uk": "гараж",
+        "phonetic": "[гара́тже]",
+        "emoji": "🚙"
+      },
+      {
+        "va": "terrassa",
+        "uk": "тераса",
+        "phonetic": "[терра́сса]",
+        "emoji": "🏡"
+      },
+      {
+        "va": "porxo",
+        "uk": "ганок",
+        "phonetic": "[по́рчо]",
+        "emoji": "🪟"
+      },
+      {
+        "va": "tanca",
+        "uk": "паркан",
+        "phonetic": "[та́нка]",
+        "emoji": "🚧"
+      },
+      {
+        "va": "bústia",
+        "uk": "поштова скринька",
+        "phonetic": "[бу́стія]",
+        "emoji": "📬"
+      },
+      {
+        "va": "timbre",
+        "uk": "дверний дзвінок",
+        "phonetic": "[тімбре]",
+        "emoji": "🔔"
+      },
+      {
+        "va": "clau",
+        "uk": "ключ",
+        "phonetic": "[клау]",
+        "emoji": "🔑"
+      }
+    ],
+    "toys1": [
+      {
+        "va": "nina",
+        "uk": "лялька",
+        "phonetic": "[ні́на]",
+        "emoji": "🪆"
+      },
+      {
+        "va": "cotxet",
+        "uk": "іграшкова машинка",
+        "phonetic": "[котче́т]",
+        "emoji": "🚙"
+      },
+      {
+        "va": "pilota",
+        "uk": "м'яч",
+        "phonetic": "[піло́та]",
+        "emoji": "⚽"
+      },
+      {
+        "va": "puzle",
+        "uk": "пазл",
+        "phonetic": "[пу́зле]",
+        "emoji": "🧩"
+      },
+      {
+        "va": "peluix",
+        "uk": "плюшева іграшка",
+        "phonetic": "[пелу́йш]",
+        "emoji": "🧸"
+      },
+      {
+        "va": "baldufa",
+        "uk": "дзиґа",
+        "phonetic": "[балду́фа]",
+        "emoji": "🌀"
+      },
+      {
+        "va": "cometa",
+        "uk": "повітряний змій",
+        "phonetic": "[коме́та]",
+        "emoji": "🪁"
+      },
+      {
+        "va": "blocs",
+        "uk": "кубики (конструктор)",
+        "phonetic": "[блокс]",
+        "emoji": "🧱"
+      }
+    ],
+    "weather1": [
+      {
+        "va": "Fa sol",
+        "uk": "Сонячно",
+        "phonetic": "[фа сол]",
+        "emoji": "☀️"
+      },
+      {
+        "va": "Fa fred",
+        "uk": "Холодно",
+        "phonetic": "[фа фрет]",
+        "emoji": "🥶"
+      },
+      {
+        "va": "Fa calor",
+        "uk": "Спекотно",
+        "phonetic": "[фа кало́р]",
+        "emoji": "🥵"
+      },
+      {
+        "va": "Plou",
+        "uk": "Йде дощ",
+        "phonetic": "[плоу]",
+        "emoji": "🌧️"
+      },
+      {
+        "va": "Neva",
+        "uk": "Йде сніг",
+        "phonetic": "[не́ва]",
+        "emoji": "❄️"
+      },
+      {
+        "va": "Fa vent",
+        "uk": "Вітряно",
+        "phonetic": "[фа вент]",
+        "emoji": "💨"
+      },
+      {
+        "va": "Està ennuvolat",
+        "uk": "Хмарно",
+        "phonetic": "[еста́ еннуволат]",
+        "emoji": "☁️"
+      }
+    ],
+    "phrases_greetings1": [
+      {
+        "va": "Bon dia!",
+        "uk": "Добрий ранок!",
+        "phonetic": "[бон ді́а]",
+        "emoji": "🌅"
+      },
+      {
+        "va": "Bona vesprada!",
+        "uk": "Добрий вечір!",
+        "phonetic": "[бо́на веспра́да]",
+        "emoji": "🌇"
+      },
+      {
+        "va": "Bona nit!",
+        "uk": "На добраніч!",
+        "phonetic": "[бо́на ніт]",
+        "emoji": "🌙"
+      },
+      {
+        "va": "Adéu!",
+        "uk": "Прощавай!",
+        "phonetic": "[аде́у]",
+        "emoji": "👋"
+      },
+      {
+        "va": "Com estàs?",
+        "uk": "Як справи?",
+        "phonetic": "[ком еста́с]",
+        "emoji": "🙂"
+      },
+      {
+        "va": "Molt bé, gràcies",
+        "uk": "Дуже добре, дякую",
+        "phonetic": "[мольт бе гра́сіес]",
+        "emoji": "👍"
+      },
+      {
+        "va": "Fins demà!",
+        "uk": "До завтра!",
+        "phonetic": "[фінс дема́]",
+        "emoji": "➡️"
+      },
+      {
+        "va": "Encantat de conéixer-te",
+        "uk": "Приємно познайомитись",
+        "phonetic": "[енканта́т де конейшерте]",
+        "emoji": "🤝"
+      }
+    ],
+    "phrases_parc1": [
+      {
+        "va": "Vull jugar al gronxador",
+        "uk": "Хочу покататись на гойдалці",
+        "phonetic": "[вуль жуга́р ал гронщадо́р]",
+        "emoji": "🎠"
+      },
+      {
+        "va": "Corre més ràpid!",
+        "uk": "Біжи швидше!",
+        "phonetic": "[ко́рре мес ра́піт]",
+        "emoji": "🏃"
+      },
+      {
+        "va": "Compte amb la pilota!",
+        "uk": "Обережно з м'ячем!",
+        "phonetic": "[ко́мпте амб ла піло́та]",
+        "emoji": "⚽"
+      },
+      {
+        "va": "Anem al parc",
+        "uk": "Ходімо в парк",
+        "phonetic": "[ане́м ал парк]",
+        "emoji": "🌳"
+      },
+      {
+        "va": "Puc pujar ací?",
+        "uk": "Можна мені сюди залізти?",
+        "phonetic": "[пук пужа́р асі́]",
+        "emoji": "🧗"
+      },
+      {
+        "va": "M'agrada la gronxadora",
+        "uk": "Мені подобаються гойдалки",
+        "phonetic": "[магра́да ла гронщадо́ра]",
+        "emoji": "🙂"
+      },
+      {
+        "va": "Té gana el gos?",
+        "uk": "Собака голодний?",
+        "phonetic": "[те га́на ел гос]",
+        "emoji": "🐕"
+      },
+      {
+        "va": "Fem una cursa!",
+        "uk": "Побіжимо навипередки!",
+        "phonetic": "[фем у́на ку́рса]",
+        "emoji": "🏁"
+      }
+    ],
+    "phrases_botiga1": [
+      {
+        "va": "Quant costa açò?",
+        "uk": "Скільки це коштує?",
+        "phonetic": "[ку́ант ко́ста асо́]",
+        "emoji": "💰"
+      },
+      {
+        "va": "Vull comprar açò",
+        "uk": "Хочу купити це",
+        "phonetic": "[вуль компра́р асо́]",
+        "emoji": "🛒"
+      },
+      {
+        "va": "Té canvi?",
+        "uk": "Є решта?",
+        "phonetic": "[те ка́нві]",
+        "emoji": "💵"
+      },
+      {
+        "va": "On és la caixa?",
+        "uk": "Де каса?",
+        "phonetic": "[он ес ла ка́йша]",
+        "emoji": "🧾"
+      },
+      {
+        "va": "Puc pagar amb targeta?",
+        "uk": "Можна оплатити карткою?",
+        "phonetic": "[пук пага́р амб тарже́та]",
+        "emoji": "💳"
+      },
+      {
+        "va": "Necessite ajuda",
+        "uk": "Мені потрібна допомога",
+        "phonetic": "[несесіте ажу́да]",
+        "emoji": "🙋"
+      },
+      {
+        "va": "És massa car",
+        "uk": "Це занадто дорого",
+        "phonetic": "[ес ма́сса кар]",
+        "emoji": "😳"
+      },
+      {
+        "va": "Gràcies per la teua ajuda",
+        "uk": "Дякую за допомогу",
+        "phonetic": "[гра́сіес пер ла те́уа ажу́да]",
+        "emoji": "🙏"
+      }
+    ],
+    "phrases_aniversari1": [
+      {
+        "va": "Feliç aniversari!",
+        "uk": "З днем народження!",
+        "phonetic": "[феліс анівераірі]",
+        "emoji": "🎂"
+      },
+      {
+        "va": "Quants anys tens?",
+        "uk": "Скільки тобі років?",
+        "phonetic": "[ку́антс а́ньс тенс]",
+        "emoji": "🎈"
+      },
+      {
+        "va": "Bufa les espelmes!",
+        "uk": "Задуй свічки!",
+        "phonetic": "[бу́фа лес еспе́лмес]",
+        "emoji": "🕯️"
+      },
+      {
+        "va": "Açò és per a tu",
+        "uk": "Це для тебе",
+        "phonetic": "[асо́ ес пер а ту]",
+        "emoji": "💝"
+      },
+      {
+        "va": "Vull un regal",
+        "uk": "Я хочу подарунок",
+        "phonetic": "[вуль ун регал]",
+        "emoji": "🎁"
+      },
+      {
+        "va": "Anem de festa!",
+        "uk": "Ходімо на свято!",
+        "phonetic": "[ане́м де фе́ста]",
+        "emoji": "🎉"
+      },
+      {
+        "va": "Quina festa més divertida!",
+        "uk": "Яке веселе свято!",
+        "phonetic": "[кі́на фе́ста мес дівертіда]",
+        "emoji": "🥳"
+      },
+      {
+        "va": "Molta felicitat!",
+        "uk": "Багато щастя!",
+        "phonetic": "[мо́льта феліситат]",
+        "emoji": "🌟"
+      }
+    ],
+    "phrases_bedtime1": [
+      {
+        "va": "És hora d'anar al llit",
+        "uk": "Час іти спати",
+        "phonetic": "[ес о́ра дана́р ал льїт]",
+        "emoji": "🛏️"
+      },
+      {
+        "va": "Bona nit!",
+        "uk": "На добраніч!",
+        "phonetic": "[бо́на ніт]",
+        "emoji": "🌙"
+      },
+      {
+        "va": "Fes-me un conte",
+        "uk": "Розкажи мені казку",
+        "phonetic": "[фесме ун конте]",
+        "emoji": "📖"
+      },
+      {
+        "va": "Tinc son",
+        "uk": "Я хочу спати",
+        "phonetic": "[тінк сон]",
+        "emoji": "😴"
+      },
+      {
+        "va": "Apaga el llum",
+        "uk": "Вимкни світло",
+        "phonetic": "[апа́га ел льюм]",
+        "emoji": "💡"
+      },
+      {
+        "va": "Dorm bé",
+        "uk": "Спи добре",
+        "phonetic": "[дорм бе]",
+        "emoji": "😌"
+      },
+      {
+        "va": "Abraça'm",
+        "uk": "Обійми мене",
+        "phonetic": "[абра́сам]",
+        "emoji": "🤗"
+      },
+      {
+        "va": "Somnia bonic",
+        "uk": "Хай насняться гарні сни",
+        "phonetic": "[со́мнія бонік]",
+        "emoji": "💫"
+      }
+    ],
+    "phrases_permission1": [
+      {
+        "va": "Puc eixir?",
+        "uk": "Можна вийти?",
+        "phonetic": "[пук ейші́р]",
+        "emoji": "🚪"
+      },
+      {
+        "va": "Puc beure aigua?",
+        "uk": "Можна попити води?",
+        "phonetic": "[пук бе́уре а́йгуа]",
+        "emoji": "💧"
+      },
+      {
+        "va": "M'ajudes?",
+        "uk": "Допоможеш мені?",
+        "phonetic": "[ажу́дес]",
+        "emoji": "🙏"
+      },
+      {
+        "va": "Puc anar al bany?",
+        "uk": "Можна мені в туалет?",
+        "phonetic": "[пук ана́р ал бань]",
+        "emoji": "🚽"
+      },
+      {
+        "va": "Puc jugar un poc més?",
+        "uk": "Можна ще трохи погратись?",
+        "phonetic": "[пук жуга́р ун пок мес]",
+        "emoji": "🎲"
+      },
+      {
+        "va": "Puc vore la tele?",
+        "uk": "Можна подивитись телевізор?",
+        "phonetic": "[пук во́ре ла те́ле]",
+        "emoji": "📺"
+      },
+      {
+        "va": "Em deixes provar-ho?",
+        "uk": "Даси мені спробувати?",
+        "phonetic": "[ем дейшес провар о]",
+        "emoji": "🙋"
+      },
+      {
+        "va": "Puc portar el meu joguet?",
+        "uk": "Можна взяти свою іграшку?",
+        "phonetic": "[пук порта́р ел ме́у жоге́т]",
+        "emoji": "🧸"
+      }
+    ],
+    "phrases_feelings1": [
+      {
+        "va": "Estic content",
+        "uk": "Я радий",
+        "phonetic": "[есті́к конте́нт]",
+        "emoji": "😄"
+      },
+      {
+        "va": "Tinc gana",
+        "uk": "Я голодний",
+        "phonetic": "[тінк га́на]",
+        "emoji": "🍽️"
+      },
+      {
+        "va": "Tinc set",
+        "uk": "Я хочу пити",
+        "phonetic": "[тінк сет]",
+        "emoji": "🥤"
+      },
+      {
+        "va": "Estic trist",
+        "uk": "Мені сумно",
+        "phonetic": "[есті́к тріст]",
+        "emoji": "😢"
+      },
+      {
+        "va": "Tinc por",
+        "uk": "Мені страшно",
+        "phonetic": "[тінк пор]",
+        "emoji": "😨"
+      },
+      {
+        "va": "Estic cansat",
+        "uk": "Я втомлений",
+        "phonetic": "[есті́к канса́т]",
+        "emoji": "😴"
+      },
+      {
+        "va": "M'agrada molt açò",
+        "uk": "Мені це дуже подобається",
+        "phonetic": "[магра́да мольт асо́]",
+        "emoji": "❤️"
+      },
+      {
+        "va": "No m'agrada gens",
+        "uk": "Мені це зовсім не подобається",
+        "phonetic": "[но магра́да женс]",
+        "emoji": "👎"
+      }
+    ],
+    "grammar_ser1": [
+      {
+        "va": "Jo sóc xicotet",
+        "uk": "Я маленький",
+        "phonetic": "[жо сок шікоте́т]",
+        "emoji": "🧒"
+      },
+      {
+        "va": "Tu ets alt",
+        "uk": "Ти високий",
+        "phonetic": "[ту ец алт]",
+        "emoji": "📏"
+      },
+      {
+        "va": "Ell és content",
+        "uk": "Він щасливий",
+        "phonetic": "[ель ес конте́нт]",
+        "emoji": "😄"
+      },
+      {
+        "va": "Ella és mestra",
+        "uk": "Вона вчителька",
+        "phonetic": "[е́лья ес ме́стра]",
+        "emoji": "👩‍🏫"
+      },
+      {
+        "va": "Nosaltres som amics",
+        "uk": "Ми друзі",
+        "phonetic": "[носа́лтрес сом амікс]",
+        "emoji": "🤝"
+      },
+      {
+        "va": "Vosaltres sou xiquets",
+        "uk": "Ви діти",
+        "phonetic": "[восалтрес соу шіке́тс]",
+        "emoji": "👦"
+      },
+      {
+        "va": "Ells són valencians",
+        "uk": "Вони валенсійці",
+        "phonetic": "[ельс сон валенсіа́нс]",
+        "emoji": "🇪🇸"
+      },
+      {
+        "va": "Açò és bo",
+        "uk": "Це добре (смачно)",
+        "phonetic": "[асо́ ес бо]",
+        "emoji": "👍"
+      }
+    ],
+    "grammar_tenir1": [
+      {
+        "va": "Jo tinc un gos",
+        "uk": "У мене є собака",
+        "phonetic": "[жо тінк ун гос]",
+        "emoji": "🐶"
+      },
+      {
+        "va": "Tu tens una pilota",
+        "uk": "У тебе є м'яч",
+        "phonetic": "[ту тенс у́на піло́та]",
+        "emoji": "⚽"
+      },
+      {
+        "va": "Ell té fam",
+        "uk": "Він голодний",
+        "phonetic": "[ель те фам]",
+        "emoji": "🍽️"
+      },
+      {
+        "va": "Ella té set",
+        "uk": "Вона хоче пити",
+        "phonetic": "[е́лья те сет]",
+        "emoji": "🥤"
+      },
+      {
+        "va": "Nosaltres tenim temps",
+        "uk": "У нас є час",
+        "phonetic": "[носа́лтрес тені́м темпс]",
+        "emoji": "⏰"
+      },
+      {
+        "va": "Vosaltres teniu sort",
+        "uk": "Вам щастить",
+        "phonetic": "[восалтрес теніу сорт]",
+        "emoji": "🍀"
+      },
+      {
+        "va": "Ells tenen fred",
+        "uk": "Їм холодно",
+        "phonetic": "[ельс те́нен фрет]",
+        "emoji": "🥶"
+      },
+      {
+        "va": "Tinc una idea",
+        "uk": "У мене є ідея",
+        "phonetic": "[тінк у́на іде́а]",
+        "emoji": "💡"
+      }
+    ],
+    "grammar_plural1": [
+      {
+        "va": "gats",
+        "uk": "коти",
+        "phonetic": "[гатс]",
+        "emoji": "🐱"
+      },
+      {
+        "va": "cases",
+        "uk": "доми",
+        "phonetic": "[ка́сес]",
+        "emoji": "🏠"
+      },
+      {
+        "va": "flors",
+        "uk": "квіти",
+        "phonetic": "[флорс]",
+        "emoji": "🌸"
+      },
+      {
+        "va": "llibres",
+        "uk": "книги",
+        "phonetic": "[льї́брес]",
+        "emoji": "📚"
+      },
+      {
+        "va": "xiquets",
+        "uk": "діти",
+        "phonetic": "[шіке́тс]",
+        "emoji": "👦"
+      },
+      {
+        "va": "pomes",
+        "uk": "яблука",
+        "phonetic": "[по́мес]",
+        "emoji": "🍎"
+      },
+      {
+        "va": "taules",
+        "uk": "столи",
+        "phonetic": "[та́улес]",
+        "emoji": "🟫"
+      },
+      {
+        "va": "cotxes",
+        "uk": "машини",
+        "phonetic": "[ко́тчес]",
+        "emoji": "🚗"
+      }
+    ],
+    "grammar_prepositions1": [
+      {
+        "va": "El gat és sobre la taula",
+        "uk": "Кіт на столі",
+        "phonetic": "[ел гат ес со́бре ла та́ула]",
+        "emoji": "🐱"
+      },
+      {
+        "va": "El llibre és davall la cadira",
+        "uk": "Книга під стільцем",
+        "phonetic": "[ел льї́бре ес дава́ль ла кадіра]",
+        "emoji": "📖"
+      },
+      {
+        "va": "Estic darrere de tu",
+        "uk": "Я за тобою",
+        "phonetic": "[есті́к дарре́ре де ту]",
+        "emoji": "👤"
+      },
+      {
+        "va": "Estic davant de la porta",
+        "uk": "Я перед дверима",
+        "phonetic": "[есті́к дава́нт де ла по́рта]",
+        "emoji": "🚪"
+      },
+      {
+        "va": "El gos és dins de la casa",
+        "uk": "Собака всередині дому",
+        "phonetic": "[ел гос ес дінс де ла ка́са]",
+        "emoji": "🏠"
+      },
+      {
+        "va": "El pardal és fora",
+        "uk": "Пташка надворі",
+        "phonetic": "[ел парда́ль ес фо́ра]",
+        "emoji": "🐦"
+      },
+      {
+        "va": "Vinc amb tu",
+        "uk": "Я йду з тобою",
+        "phonetic": "[він амб ту]",
+        "emoji": "🚶"
+      },
+      {
+        "va": "Açò és per a mi",
+        "uk": "Це для мене",
+        "phonetic": "[асо́ ес пер а мі]",
+        "emoji": "👉"
       }
     ]
   }

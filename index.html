@@ -22,6 +22,7 @@
 <body>
   <div class="app">
     <h1>Valencià ↔ Українська • Тренажер</h1>
+    <div class="mascot" id="mascot">🐉</div>
     <div class="top-row">
       <div class="mode-switch">
         <button id="mode-va-uk" class="active">Valencià → Укр</button>
@@ -31,6 +32,7 @@
         <div class="xp-pill">⚡ <span id="xp-value">0</span> XP</div>
         <div class="streak-pill">🔥 <span id="streak-days">0</span> дн.</div>
         <button class="icon-btn" id="review-btn" title="Повторення складних слів з усіх тем">🔁</button>
+        <button class="icon-btn" id="memory-btn" title="Гра: знайди пару">🃏</button>
         <button class="icon-btn" id="badges-btn" title="Досягнення">🏆</button>
         <button class="icon-btn" id="parent-btn" title="Панель батьків">👪</button>
       </div>
@@ -94,6 +96,18 @@
         <button class="modal-close" id="badges-close">✕</button>
       </div>
       <div class="badges-grid" id="badges-grid"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="memory-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>🃏 Знайди пару</h2>
+        <button class="modal-close" id="memory-close">✕</button>
+      </div>
+      <div class="memory-info" id="memory-info">Спроб: 0</div>
+      <div class="memory-grid" id="memory-grid"></div>
+      <div class="memory-result" id="memory-result"></div>
     </div>
   </div>
 
